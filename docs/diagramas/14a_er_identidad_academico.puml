@@ -1,0 +1,87 @@
+@startuml
+!include _er_estilo.iuml
+package "esquema identidad" #F7F7F7 {
+  entity "usuario" as U {
+    * id : uuid <<PK>>
+    --
+    * correo : varchar(254) <<UK>>
+    * hash_contrasena : text
+    * nombre_cifrado : text
+    telefono_cifrado : text
+    * rol : varchar(20)
+    * seudonimo : char(24) <<UK>>
+    * activo : boolean
+    * creado_en : timestamptz
+  }
+  entity "consentimiento" as CO {
+    * id : bigserial <<PK>>
+    --
+    * usuario_id : uuid <<FK>>
+    * version : varchar(20)
+    * hash_texto : char(64)
+    * aceptado_en : timestamptz
+  }
+}
+package "esquema academico" #FFFFFF {
+  entity "conversacion" as CV {
+    * id : uuid <<PK>>
+    --
+    * seudonimo : char(24)
+    * titulo : varchar(120)
+    * creada_en : timestamptz
+    * actualizada_en : timestamptz
+  }
+  entity "mensaje" as M {
+    * id : uuid <<PK>>
+    --
+    * conversacion_id : uuid <<FK>>
+    * autor : varchar(12)
+    * contenido_cifrado : text
+    * fuentes : jsonb
+    * creado_en : timestamptz
+  }
+  entity "documento_conocimiento" as D {
+    * id : serial <<PK>>
+    --
+    * clave : varchar(60) <<UK>>
+    * titulo : varchar(200)
+    * tema : varchar(40)
+    * referencia : text
+    * hash_contenido : char(64)
+  }
+  entity "fragmento_conocimiento" as F {
+    * id : serial <<PK>>
+    --
+    * documento_id : int <<FK>>
+    * orden : int
+    * contenido : text
+    * embedding : vector(1024)
+  }
+}
+package "esquema auditoria (solo inserción)" #F2F2F2 {
+  entity "bitacora_decision" as BD {
+    * id : bigserial <<PK>>
+    --
+    * evaluacion_id : uuid
+    * seudonimo, origen, categoria, accion
+    * reglas, evidencias : jsonb
+    * version_reglas, huella_reglas
+    * hash_anterior : char(64)
+    * hash_actual : char(64) <<UK>>
+  }
+  entity "bitacora_acceso" as BA {
+    * id : bigserial <<PK>>
+    --
+    * usuario_id, rol, accion
+    * recurso, recurso_id, direccion_ip
+    * hash_anterior : char(64)
+    * hash_actual : char(64) <<UK>>
+  }
+}
+U ||--o{ CO
+CO -[hidden]down- BA
+F -[hidden]down- BD
+CV ||--|{ M
+D ||--|{ F
+U ..o{ CV : seudónimo\n(lógica)
+@enduml

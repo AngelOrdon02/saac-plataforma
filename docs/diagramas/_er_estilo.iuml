@@ -1,0 +1,11 @@
+!include _estilo.iuml
+skinparam dpi 150
+skinparam defaultFontSize 15
+skinparam linetype ortho
+skinparam nodesep 30
+skinparam ranksep 40
+hide circle
+hide methods
+skinparam PackageFontSize 15
+skinparam PackageStyle rectangle
+skinparam ClassAttributeFontSize 14

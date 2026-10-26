@@ -1,0 +1,76 @@
+@startuml
+!include _estilo.iuml
+hide circle
+hide methods
+skinparam linetype polyline
+skinparam nodesep 40
+skinparam ranksep 45
+class Estudiante {
+  seudónimo
+  consentimiento
+}
+class "Personal de atención" as Personal
+class Conversación {
+  título
+}
+class Mensaje {
+  autor
+  contenido cifrado
+}
+class Evaluación {
+  origen
+  nivel de riesgo
+  categoría: C0 a C3
+  acción
+}
+class Señal {
+  origen: léxico o modelo
+}
+class Indicador {
+  código
+  referencia: PHQ-9, GAD-7, NICE
+}
+class "Resultado de tamizaje" as Tamizaje {
+  instrumento
+  puntaje total
+  severidad
+}
+class "Conjunto de reglas" as Reglas {
+  versión
+  huella SHA-256
+}
+class Ofrecimiento {
+  tipo
+  respuesta
+}
+class "Solicitud de derivación" as Solicitud {
+  código
+  prioridad
+  estado
+}
+class "Cambio de estado" as Cambio
+class "Recurso de atención" as Recurso {
+  tipo
+  horario
+  contacto
+}
+class "Registro de bitácora" as Bitacora {
+  hash anterior
+  hash actual
+}
+Estudiante "1" -- "0..*" Conversación
+Conversación "1" *-- "1..*" Mensaje
+Mensaje "1" -- "0..1" Evaluación
+Estudiante "1" -- "0..*" Tamizaje
+Tamizaje "1..2" -- "0..1" Evaluación
+Evaluación "1" *-- "0..*" Señal
+Señal "0..*" -- "1" Indicador
+Evaluación "0..*" -- "1" Reglas : aplica >
+Evaluación "1" -- "0..1" Ofrecimiento
+Evaluación "1" -- "0..1" Solicitud : origina >
+Estudiante "1" -- "0..*" Solicitud
+Solicitud "1" *-- "1..*" Cambio
+Personal "0..1" -- "0..*" Solicitud : atiende >
+Evaluación "1" -- "1" Bitacora
+Solicitud ..> Recurso
+@enduml

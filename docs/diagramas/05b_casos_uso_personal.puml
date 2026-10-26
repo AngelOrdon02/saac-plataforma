@@ -1,0 +1,27 @@
+@startuml
+!include _estilo.iuml
+skinparam dpi 150
+skinparam defaultFontSize 15
+left to right direction
+skinparam nodesep 14
+skinparam ranksep 70
+actor "Personal de\natención psicológica" as P
+actor "Administrador\ntécnico" as A
+actor "Servidor de\ncorreo" as S <<sistema>>
+rectangle "SAAC" {
+  usecase "CU-10 Gestionar bandeja\nde solicitudes" as C10
+  usecase "CU-11 Actualizar estado\nde una solicitud" as C11
+  usecase "CU-12 Notificar\nal personal" as C12
+  usecase "CU-13 Consultar\nmétricas agregadas" as C13
+  usecase "CU-14 Verificar integridad\nde las bitácoras" as C14
+  usecase "CU-15 Administrar personal y\nbase de conocimiento" as C15
+}
+P --> C10
+P --> C11
+P --> C12
+C11 .up.> C10 : <<extend>>
+A --> C13
+A --> C14
+A --> C15
+C12 --> S
+@enduml

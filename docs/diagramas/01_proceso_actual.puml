@@ -1,0 +1,32 @@
+@startuml
+!include _estilo.iuml
+skinparam defaultFontSize 12
+|Estudiante|
+start
+:Percibe dificultades de concentración,
+organización o rendimiento académico;
+:Busca ayuda para "problemas de estudio"
+(compañeros, internet, docentes);
+if (¿Reconoce que la dificultad
+puede tener un origen emocional?) then (no)
+  :Aplica estrategias por su cuenta;
+  :El malestar puede pasar
+  inadvertido o agravarse;
+  stop
+else (sí)
+  if (¿Conoce el servicio y
+  el procedimiento de acceso?) then (no)
+    :No solicita atención
+    (desconocimiento, estigma,
+    "es solo para casos graves");
+    stop
+  else (sí)
+    :Decide por su cuenta acudir
+    a una unidad de atención;
+    |Servicio de atención psicológica|
+    :Recibe al estudiante;
+    :Asigna cita y brinda la atención;
+    stop
+  endif
+endif
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+!include _estilo.iuml
+skinparam dpi 200
+hide empty description
+[*] --> NUEVA : se crea la solicitud\n(C2 con consentimiento o C3)
+NUEVA --> EN_REVISION : el personal la toma
+NUEVA --> CANCELADA : el estudiante la retira\n(solo derivación ordinaria)
+EN_REVISION --> CONTACTADO : primer contacto logrado
+EN_REVISION --> NO_LOCALIZADO : sin respuesta
+EN_REVISION --> FINALIZADA : ya recibe atención
+NO_LOCALIZADO --> CONTACTADO : nuevo intento exitoso
+NO_LOCALIZADO --> FINALIZADA : se agotan los intentos
+CONTACTADO --> AGENDADA : se asigna una cita
+CONTACTADO --> FINALIZADA : no requiere cita
+AGENDADA --> FINALIZADA : la atención se realiza
+AGENDADA --> NO_LOCALIZADO : no asiste
+FINALIZADA --> [*]
+CANCELADA --> [*]
+state "Nueva" as NUEVA
+state "En revisión" as EN_REVISION
+state "Contactado" as CONTACTADO
+state "No localizado" as NO_LOCALIZADO
+state "Agendada" as AGENDADA
+state "Finalizada" as FINALIZADA
+state "Cancelada" as CANCELADA
+@enduml

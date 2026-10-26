@@ -1,0 +1,61 @@
+@startuml
+!include _estilo.iuml
+skinparam dpi 200
+skinparam defaultFontSize 12
+start
+#E0E0E0:**Estudiante**
+Consulta sobre estudio, tiempo
+u organización de tareas;
+#FFFFFF:**Plataforma SAAC**
+Evalúa el mensaje (señales de
+riesgo, indicadores y reglas);
+if (¿Señal de riesgo?) then (sí)
+  #FFFFFF:**Plataforma SAAC**
+  Muestra de inmediato los recursos
+  de crisis, crea una solicitud
+  prioritaria y notifica al personal;
+else (no)
+  #FFFFFF:**Plataforma SAAC**
+  Responde con el asistente
+  académico (RAG);
+  if (¿Corresponde ofrecer
+  apoyo profesional?) then (no)
+    #E0E0E0:**Estudiante**
+    Continúa con el
+    acompañamiento académico;
+    stop
+  else (sí)
+    #FFFFFF:**Plataforma SAAC**
+    Ofrece, en lenguaje no clínico,
+    el contacto con atención
+    psicológica (voluntario);
+    if (¿El estudiante acepta?) then (no)
+      #E0E0E0:**Estudiante**
+      Conserva acceso a los recursos
+      y al acompañamiento;
+      stop
+    else (sí)
+      #E0E0E0:**Estudiante**
+      Indica preferencias y
+      otorga su consentimiento;
+      #FFFFFF:**Plataforma SAAC**
+      Crea la solicitud ordinaria
+      y notifica al personal;
+    endif
+  endif
+endif
+#BDBDBD:**Personal de atención psicológica**
+Revisa la solicitud, contacta al
+estudiante y agenda la atención;
+#BDBDBD:**Personal de atención psicológica**
+Registra cada cambio de estado;
+#FFFFFF:**Plataforma SAAC**
+Conserva la trazabilidad de
+decisiones y accesos;
+stop
+legend right
+  |<#E0E0E0>| Estudiante |
+  |<#FFFFFF>| Plataforma SAAC |
+  |<#BDBDBD>| Personal de atención psicológica |
+endlegend
+@enduml

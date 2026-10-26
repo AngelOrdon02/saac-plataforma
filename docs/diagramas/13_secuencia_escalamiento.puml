@@ -1,0 +1,30 @@
+@startuml
+!include _estilo.iuml
+skinparam dpi 150
+skinparam defaultFontSize 16
+skinparam ParticipantPadding 6
+hide footbox
+skinparam maxMessageSize 250
+autonumber "0."
+actor "Estudiante\n(interfaz web)" as E
+participant "API" as API
+participant "Detector\nde riesgo" as DET
+participant "Motor de\nreglas" as MOT
+participant "Solicitudes y\nnotificaciones" as SOL
+database "Bitácora" as BIT
+actor "Personal de\natención" as P
+E -> API : mensaje con señal de riesgo
+API -> DET : evaluar (léxico determinista)
+DET --> API : nivel 3 · método, intención o plan
+API -> MOT : hechos (nivel_riesgo = 3)
+MOT --> API : R1 → C3 · PROTOCOLO_RIESGO
+API -> SOL : crear solicitud CRÍTICA\n(contacto del registro)
+SOL -> P : aviso en la aplicación y por correo\n(sin datos sensibles)
+API -> BIT : registrar la decisión encadenada
+API --> E : mensaje fijo + recursos de crisis\n(el modelo de lenguaje no responde)
+P -> API : consulta el detalle de la solicitud
+API -> BIT : registrar el acceso
+API --> P : contacto, motivo y regla aplicada
+P -> E : contacto inmediato
+P -> API : actualiza el estado (en revisión, contactado…)
+@enduml

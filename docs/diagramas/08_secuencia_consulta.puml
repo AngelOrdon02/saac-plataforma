@@ -1,0 +1,30 @@
+@startuml
+!include _estilo.iuml
+skinparam dpi 150
+skinparam defaultFontSize 16
+skinparam ParticipantPadding 6
+hide footbox
+skinparam BoxPadding 4
+skinparam maxMessageSize 230
+autonumber "0."
+actor "Estudiante\n(interfaz web)" as E
+participant "API" as API
+participant "Capa de\ncanalización" as CAN
+participant "Asistente\nacadémico" as AS
+database "pgvector" as V
+participant "Servicio de\nmodelos" as LLM
+E -> API : envía la consulta
+API -> API : guarda el mensaje cifrado
+API -> CAN : evaluar el mensaje
+CAN --> API : C0 · ACOMPANAMIENTO
+API -> AS : consulta sin identificadores
+AS -> LLM : calcular embedding
+LLM --> AS : vector de 1024 dimensiones
+AS -> V : k fragmentos más similares
+V --> AS : fragmentos y referencias
+AS -> LLM : instrucciones + contexto [F1..Fk] + historial + consulta
+LLM --> AS : respuesta con citas
+AS --> API : texto y fuentes
+API -> API : guarda la respuesta cifrada
+API --> E : respuesta, fuentes y acción
+@enduml

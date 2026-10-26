@@ -1,0 +1,29 @@
+@startuml
+!include _estilo.iuml
+skinparam dpi 200
+skinparam defaultFontSize 12
+start
+:Mensaje del estudiante;
+#E0E0E0:**Detector de riesgo** (determinista)
+léxico versionado · gradación de la Escala Columbia;
+#F2F2F2:**Extractor léxico** (determinista)
+expresiones → códigos D1–D8, A1–A7, F1 y T1;
+if (¿Nivel de riesgo ≥ 1?) then (no)
+  #FFFFFF:**Extractor con modelo de lenguaje** (opcional)
+  texto depurado → JSON validado contra el catálogo
+  (si sugiere riesgo, se pide verificación directa);
+else (sí)
+  :Se omite el modelo:
+  la señal ya es explícita;
+endif
+:Guardar señales (solo códigos de indicador,
+nunca el texto) en el esquema canalizacion;
+:Calcular hechos en la ventana de 14 días;
+#E0E0E0:**Motor de reglas versionado**
+(R1 a R7 y supresiones);
+:Ejecutar la acción
+(ofrecer, notificar, crear solicitud o nada);
+:Registrar la decisión en la bitácora encadenada;
+:Devolver categoría y acción a la API;
+stop
+@enduml

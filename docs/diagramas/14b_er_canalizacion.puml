@@ -1,0 +1,99 @@
+@startuml
+!include _er_estilo.iuml
+package "esquema canalizacion" #FFFFFF {
+  entity "indicador" as I {
+    * codigo : varchar(8) <<PK>>
+    --
+    * dominio : varchar(12)
+    * referencia : varchar(60)
+    * descripcion : varchar(200)
+    * compartido : boolean
+  }
+  entity "evaluacion" as E {
+    * id : uuid <<PK>>
+    --
+    * seudonimo : char(24)
+    conversacion_id : uuid
+    mensaje_id : uuid
+    * origen : varchar(12)
+    * nivel_riesgo : smallint
+    * categoria : varchar(2)
+    * accion : varchar(30)
+    * reglas_aplicadas : jsonb
+    * version_reglas : varchar(20)
+  }
+  entity "senal" as S {
+    * id : bigserial <<PK>>
+    --
+    * evaluacion_id : uuid <<FK>>
+    * indicador_codigo : varchar(8) <<FK>>
+    * seudonimo : char(24)
+    * origen : varchar(10)
+    * detectada_en : timestamptz
+  }
+  entity "tamizaje" as T {
+    * id : uuid <<PK>>
+    --
+    * seudonimo : char(24)
+    * instrumento : varchar(6)
+    * respuestas : smallint[]
+    * puntaje_total : smallint
+    * severidad : varchar(25)
+  }
+  entity "oferta" as O {
+    * id : uuid <<PK>>
+    --
+    * evaluacion_id : uuid <<FK>>
+    * seudonimo : char(24)
+    * tipo : varchar(12)
+    * respuesta : varchar(10)
+  }
+  entity "solicitud_derivacion" as SD {
+    * id : uuid <<PK>>
+    --
+    * codigo : varchar(16) <<UK>>
+    * evaluacion_id : uuid <<FK>>
+    * seudonimo : char(24)
+    * categoria : varchar(2)
+    * prioridad : varchar(8)
+    * estado : varchar(14)
+    * resumen : jsonb
+    * contacto_cifrado : text
+    nota_cifrada : text
+    asignada_a : uuid
+  }
+  entity "historial_estado" as H {
+    * id : bigserial <<PK>>
+    --
+    * solicitud_id : uuid <<FK>>
+    estado_anterior : varchar(14)
+    * estado_nuevo : varchar(14)
+    actor_id : uuid
+    comentario_cifrado : text
+  }
+  entity "notificacion" as N {
+    * id : bigserial <<PK>>
+    --
+    * solicitud_id : uuid <<FK>>
+    * destinatario_id : uuid
+    * canal : varchar(6)
+    * asunto : varchar(200)
+    leida_en : timestamptz
+  }
+  entity "recurso_atencion" as R {
+    * id : serial <<PK>>
+    --
+    * nombre : varchar(150)
+    * tipo : varchar(14)
+    ubicacion, horario, telefono
+    procedimiento, fuente
+    * activo : boolean
+  }
+}
+E ||--o{ S
+I ||--o{ S
+E ||--o| O
+E ||--o| SD
+SD ||--|{ H
+SD ||--o{ N
+@enduml
