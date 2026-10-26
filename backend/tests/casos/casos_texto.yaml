@@ -1,0 +1,24 @@
+# Casos de prueba de los detectores deterministas (texto -> señales esperadas).
+riesgo:
+  - { texto: "¿Cómo hago un plan de estudio para el parcial?", nivel: 0, verificar: false }
+  - { texto: "A veces quisiera no despertar", nivel: 1, verificar: false }
+  - { texto: "Siento que estarían mejor sin mí", nivel: 1, verificar: false }
+  - { texto: "He pensado en quitarme la vida", nivel: 2, verificar: false }
+  - { texto: "A veces me corto cuando estoy muy mal", nivel: 2, verificar: false }
+  - { texto: "Ya tengo un plan para matarme", nivel: 3, verificar: false }
+  - { texto: "Tengo pastillas guardadas para suicidarme", nivel: 3, verificar: false }
+  - { texto: "Ya no puedo más con todo esto", nivel: 0, verificar: true }
+  - { texto: "No le veo sentido a nada", nivel: 0, verificar: true }
+  - { texto: "Nunca he pensado en suicidarme, solo estoy cansado", nivel: 0, verificar: true }
+  - { texto: "Este proyecto me va a matar de tanto trabajo", nivel: 0, verificar: false }
+  - { texto: "Ojalá estuviera muerta", nivel: 1, verificar: false }
+  - { texto: "No sé ni para qué estudio. Ya tengo un plan para quitarme la vida", nivel: 3, verificar: false }
+indicadores:
+  - { texto: "¿Qué técnica sirve para memorizar fórmulas?", codigos: [] }
+  - { texto: "No me puedo concentrar cuando estudio", codigos: [D7] }
+  - { texto: "Me siento muy triste y sin ganas de nada", codigos: [D1, D2] }
+  - { texto: "No estoy triste, solo desorganizado", codigos: [] }
+  - { texto: "No puedo dormir desde hace varias semanas", codigos: [D3, T1] }
+  - { texto: "Dejé de ir a clases y siento que soy un fracaso", codigos: [D6, F1] }
+  - { texto: "Me preocupo por todo y no logro relajarme", codigos: [A3, A4] }
+  - { texto: "Tengo ansiedad y no paro de pensar en el examen", codigos: [A1, A2] }

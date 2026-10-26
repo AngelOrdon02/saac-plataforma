@@ -1,0 +1,61 @@
+# =============================================================================
+# SAAC · Léxico de señales de riesgo · versión 1.0.0
+#
+# Gradación inspirada en la Escala Columbia (Posner et al., 2011): deseo de estar
+# muerto, ideación activa y presencia de método, intención o plan. Se agrega la
+# autolesión, que la guía mhGAP (OMS, 2016) trata con la misma urgencia.
+#
+# Los patrones son expresiones regulares que se aplican sobre el texto
+# normalizado (minúsculas y sin tildes). Este detector es DETERMINISTA y se
+# ejecuta antes que cualquier modelo de lenguaje: una señal de riesgo nunca
+# depende de la salida libre de un modelo.
+#
+# Los patrones "ambiguos" no activan el escalamiento por sí solos: generan una
+# pregunta de verificación directa al estudiante.
+#
+# IMPORTANTE: este léxico es un punto de partida para la demostración. Antes de
+# un uso real debe ser revisado por profesionales de la salud mental.
+# =============================================================================
+
+version: "1.0.0"
+negaciones: ["no", "nunca", "jamas", "tampoco", "ni"]
+ventana_negacion: 4      # palabras previas al patrón en las que se busca una negación
+
+niveles:
+  - nivel: 1
+    nombre: Deseo de estar muerto
+    patrones:
+      - { id: R1-01, regex: "\\b(quisiera|quiero|ojala|deseo)\\s+(estar\\s+|estuviera\\s+)?muert[oa]\\b" }
+      - { id: R1-02, regex: "\\bmejor\\s+(estaria|estar)\\s+muert[oa]\\b" }
+      - { id: R1-03, regex: "\\b(quisiera|quiero|ojala)\\s+(dormirme\\s+y\\s+)?no\\s+despertar" }
+      - { id: R1-04, regex: "\\bno\\s+quiero\\s+(seguir\\s+)?(vivir|viviendo|existir)\\b" }
+      - { id: R1-05, regex: "\\bya\\s+no\\s+quiero\\s+(vivir|existir|estar\\s+vivo|estar\\s+viva)\\b" }
+      - { id: R1-06, regex: "\\b(estarian|estarias|estaria[n]?)\\s+mejor\\s+sin\\s+mi\\b" }
+      - { id: R1-07, regex: "\\bno\\s+vale\\s+la\\s+pena\\s+(vivir|seguir\\s+viviendo)\\b" }
+
+  - nivel: 2
+    nombre: Ideación activa o autolesión
+    patrones:
+      - { id: R2-01, regex: "\\b(suicid(arme|io|ar|arse)|quitarme\\s+la\\s+vida|matarme)\\b" }
+      - { id: R2-02, regex: "\\bacabar\\s+con\\s+(mi\\s+vida|todo\\s+de\\s+una\\s+vez)\\b" }
+      - { id: R2-03, regex: "\\b(hacerme|me\\s+hago|me\\s+he\\s+hecho)\\s+dano\\b" }
+      - { id: R2-04, regex: "\\b(cortarme|me\\s+corto|me\\s+he\\s+cortado|lastimarme|me\\s+lastimo)\\b" }
+      - { id: R2-05, regex: "\\bautolesion(arme|es)?\\b" }
+
+  - nivel: 3
+    nombre: Método, intención o plan
+    patrones:
+      - { id: R3-01, regex: "\\b(ya\\s+)?(tengo|hice)\\s+un\\s+plan\\s+para\\s+(matarme|suicidarme|quitarme\\s+la\\s+vida|acabar)" }
+      - { id: R3-02, regex: "\\bme\\s+voy\\s+a\\s+(matar|suicidar|quitar\\s+la\\s+vida)\\b" }
+      - { id: R3-03, regex: "\\b(hoy|esta\\s+noche|manana)\\s+(lo\\s+)?(voy\\s+a\\s+hacer|me\\s+mato|termino\\s+con\\s+todo)\\b" }
+      - { id: R3-04, regex: "\\b(pastillas|veneno|cuerda|arma|pistola|puente)\\b.{0,40}\\b(matarme|suicidarme|acabar|quitarme)" }
+      - { id: R3-05, regex: "\\b(matarme|suicidarme|quitarme\\s+la\\s+vida)\\b.{0,40}\\b(pastillas|veneno|cuerda|arma|pistola|puente)\\b" }
+      - { id: R3-06, regex: "\\bme\\s+estoy\\s+despidiendo\\b" }
+
+ambiguos:
+  - { id: AM-01, regex: "\\bya\\s+no\\s+(puedo|aguanto|soporto)\\s+mas\\b" }
+  - { id: AM-02, regex: "\\bquiero\\s+desaparecer\\b" }
+  - { id: AM-03, regex: "\\bno\\s+le\\s+veo\\s+sentido\\s+a\\s+(nada|la\\s+vida|seguir)\\b" }
+  - { id: AM-04, regex: "\\btodo\\s+seria\\s+mas\\s+facil\\s+si\\s+(no\\s+estuviera|yo\\s+no\\s+existiera)\\b" }
+  - { id: AM-05, regex: "\\bsoy\\s+una\\s+carga\\b" }
+  - { id: AM-06, regex: "\\bme\\s+quiero\\s+ir\\s+para\\s+siempre\\b" }

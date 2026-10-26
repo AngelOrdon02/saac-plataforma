@@ -1,0 +1,90 @@
+# =============================================================================
+# SAAC · Léxico de indicadores · versión 1.0.0
+#
+# Expresiones coloquiales en español asociadas a cada indicador del catálogo
+# (ítems del PHQ-9 y la GAD-7, deterioro funcional y persistencia). Se aplican
+# sobre texto normalizado (minúsculas, sin tildes).
+#
+# Este extractor léxico es determinista. El extractor basado en el modelo de
+# lenguaje (opcional) complementa sus resultados para formulaciones que el léxico
+# no prevé; ninguna de las dos fuentes decide la categoría, solo aportan hechos
+# al motor de reglas.
+# =============================================================================
+
+version: "1.0.0"
+
+# Una negación en las palabras inmediatamente previas anula la coincidencia
+# ("no estoy triste"). La persistencia y el deterioro no se niegan así, porque la
+# negación suele pertenecer a otra frase ("no puedo dormir desde hace semanas").
+negaciones: ["no", "nunca", "jamas", "tampoco", "ni"]
+ventana_negacion: 2
+sin_negacion: [T1, F1]
+
+indicadores:
+  D1:
+    - "\\b(ya\\s+)?nada\\s+me\\s+(interesa|motiva|emociona|llama\\s+la\\s+atencion)\\b"
+    - "\\bno\\s+disfruto\\s+(nada|de\\s+nada|lo\\s+que\\s+antes)\\b"
+    - "\\b(perdi|he\\s+perdido)\\s+(las\\s+)?ganas\\s+de\\b"
+    - "\\bsin\\s+ganas\\s+de\\s+nada\\b"
+  D2:
+    - "\\bme\\s+siento\\s+(muy\\s+)?(triste|deprimid[oa]|vaci[oa]|desanimad[oa]|sin\\s+esperanza)\\b"
+    - "\\bestoy\\s+(muy\\s+)?(triste|deprimid[oa]|desanimad[oa])\\b"
+    - "\\b(sin|perdi\\s+la)\\s+esperanza\\b"
+    - "\\b(lloro|llorando)\\s+(mucho|todos\\s+los\\s+dias|sin\\s+razon)\\b"
+  D3:
+    - "\\bno\\s+(puedo|logro)\\s+dormir\\b"
+    - "\\binsomnio\\b"
+    - "\\bduermo\\s+(demasiado|todo\\s+el\\s+dia|muy\\s+poco)\\b"
+    - "\\bme\\s+despierto\\s+(en\\s+la\\s+madrugada|varias\\s+veces)\\b"
+  D4:
+    - "\\b(cansad[oa]|agotad[oa])\\s+(todo\\s+el\\s+tiempo|siempre|todo\\s+el\\s+dia)\\b"
+    - "\\bsin\\s+energia\\b"
+    - "\\bno\\s+tengo\\s+energia\\b"
+  D5:
+    - "\\b(no\\s+tengo\\s+hambre|deje\\s+de\\s+comer|casi\\s+no\\s+como|perdi\\s+el\\s+apetito)\\b"
+    - "\\bcomo\\s+(de\\s+mas|demasiado|compulsivamente)\\b"
+  D6:
+    - "\\bsoy\\s+un[a]?\\s+(fracaso|fracasad[oa]|inutil|decepcion)\\b"
+    - "\\bno\\s+sirvo\\s+para\\s+nada\\b"
+    - "\\b(decepcione|he\\s+decepcionado|le\\s+falle|les\\s+falle)\\s+a\\s+(mi\\s+familia|mis\\s+padres|todos)\\b"
+    - "\\bme\\s+siento\\s+(un[a]?\\s+)?(fracaso|inutil|culpable)\\b"
+  D7:
+    - "\\bno\\s+(me\\s+)?(puedo|logro)\\s+concentrar(me)?\\b"
+    - "\\bme\\s+distraigo\\s+(con\\s+todo|facilmente|mucho)\\b"
+    - "\\bleo\\s+y\\s+no\\s+(entiendo|retengo)\\b"
+  D8:
+    - "\\b(me\\s+siento|estoy)\\s+(muy\\s+)?lent[oa]\\b"
+    - "\\bme\\s+muevo\\s+(muy\\s+)?lento\\b"
+  A1:
+    - "\\b(me\\s+siento|estoy|ando)\\s+(muy\\s+)?(nervios[oa]|ansios[oa]|tens[oa]|estresad[oa])\\b"
+    - "\\bansiedad\\b"
+    - "\\bnervios\\s+de\\s+punta\\b"
+  A2:
+    - "\\bno\\s+(puedo|logro)\\s+(dejar\\s+de\\s+preocuparme|parar\\s+de\\s+pensar|controlar\\s+(la\\s+)?preocupacion)\\b"
+    - "\\bno\\s+paro\\s+de\\s+(pensar|preocuparme)\\b"
+  A3:
+    - "\\bme\\s+preocupo\\s+(por\\s+todo|demasiado|de\\s+mas)\\b"
+    - "\\btodo\\s+me\\s+preocupa\\b"
+  A4:
+    - "\\bno\\s+(puedo|logro)\\s+(relajarme|descansar|desconectarme)\\b"
+  A5:
+    - "\\bno\\s+(me\\s+)?puedo\\s+quedar\\s+quiet[oa]\\b"
+    - "\\b(muy\\s+)?inquiet[oa]\\b"
+  A6:
+    - "\\bme\\s+(enojo|irrito|molesto)\\s+(por\\s+todo|facilmente|con\\s+todos)\\b"
+    - "\\b(irritable|de\\s+mal\\s+humor\\s+todo\\s+el\\s+tiempo)\\b"
+  A7:
+    - "\\b(miedo|temor)\\s+(de\\s+)?que\\s+algo\\s+(malo|terrible)\\b"
+    - "\\bsiento\\s+que\\s+algo\\s+(malo|terrible)\\s+va\\s+a\\s+pasar\\b"
+  F1:
+    - "\\b(deje|he\\s+dejado)\\s+de\\s+(ir\\s+a\\s+clases|asistir|entregar|salir|hacer\\s+mis\\s+cosas)\\b"
+    - "\\b(ya\\s+)?no\\s+(voy|asisto)\\s+a\\s+clases\\b"
+    - "\\bno\\s+puedo\\s+hacer\\s+nada\\b"
+    - "\\b(afecta|esta\\s+afectando|arruinando)\\s+(mis\\s+estudios|mi\\s+rendimiento|mi\\s+vida)\\b"
+    - "\\b(pienso|quiero|voy\\s+a)\\s+(abandonar|dejar)\\s+la\\s+(carrera|universidad|u)\\b"
+    - "\\bno\\s+me\\s+levanto\\s+de\\s+la\\s+cama\\b"
+  T1:
+    - "\\b(desde\\s+hace|hace|llevo|ya\\s+son)\\s+(varias|dos|tres|cuatro|muchas|\\d+)\\s+(semanas|meses)\\b"
+    - "\\b(todo\\s+el|desde\\s+inicio\\s+del|desde\\s+que\\s+empezo\\s+el)\\s+semestre\\b"
+    - "\\bdesde\\s+hace\\s+(un|1)\\s+mes\\b"
+    - "\\b(todos\\s+los\\s+dias|cada\\s+dia)\\s+desde\\b"

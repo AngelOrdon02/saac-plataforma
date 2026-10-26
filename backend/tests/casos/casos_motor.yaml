@@ -1,0 +1,75 @@
+# Casos de prueba del motor de reglas (hechos -> categoría y acción esperadas).
+# Cada caso se deriva de un criterio documentado en la literatura (tabla 4 y
+# tabla 18 del documento). Servirán de base para la evaluación del capítulo 5.
+- id: M01
+  descripcion: Consulta académica sin señales
+  hechos: {}
+  esperado: { categoria: C0, accion: ACOMPANAMIENTO, regla: R7 }
+- id: M02
+  descripcion: Una sola señal emocional no basta para ofrecer el tamizaje
+  hechos: { indicadores_emocionales: 1 }
+  esperado: { categoria: C0, accion: ACOMPANAMIENTO, regla: R7 }
+- id: M03
+  descripcion: Dos señales emocionales -> ofrecer tamizaje voluntario
+  hechos: { indicadores_emocionales: 2 }
+  esperado: { categoria: C1, accion: OFRECER_TAMIZAJE, regla: R6 }
+- id: M04
+  descripcion: Dos señales, pero ya se ofreció el tamizaje -> no insistir
+  hechos: { indicadores_emocionales: 2, tamizaje_ofrecido_reciente: true }
+  esperado: { categoria: C1, accion: MONITOREO, regla: R6 }
+- id: M05
+  descripcion: PHQ-9 = 9 (leve) -> monitoreo activo
+  hechos: { phq9_total: 9, phq9_item9: 0, tamizaje_reciente: true }
+  esperado: { categoria: C1, accion: MONITOREO, regla: R5 }
+- id: M06
+  descripcion: PHQ-9 = 10 (punto de corte de Kroenke et al.) -> derivación ordinaria
+  hechos: { phq9_total: 10, phq9_item9: 0, tamizaje_reciente: true }
+  esperado: { categoria: C2, accion: OFRECER_DERIVACION, regla: R3 }
+- id: M07
+  descripcion: GAD-7 = 10 (punto de corte de Spitzer et al.) -> derivación ordinaria
+  hechos: { gad7_total: 10, tamizaje_reciente: true }
+  esperado: { categoria: C2, accion: OFRECER_DERIVACION, regla: R3 }
+- id: M08
+  descripcion: GAD-7 = 4 (mínimo) sin otras señales -> acompañamiento
+  hechos: { gad7_total: 4, tamizaje_reciente: true }
+  esperado: { categoria: C0, accion: ACOMPANAMIENTO, regla: R7 }
+- id: M09
+  descripcion: PHQ-9 bajo pero ítem 9 distinto de cero -> escalamiento prioritario
+  hechos: { phq9_total: 3, phq9_item9: 1, tamizaje_reciente: true }
+  esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, regla: R1 }
+- id: M10
+  descripcion: Malestar persistente con deterioro funcional (NICE) -> derivación
+  hechos: { indicadores_emocionales: 3, persistencia: true, deterioro_funcional: true }
+  esperado: { categoria: C2, accion: OFRECER_DERIVACION, regla: R4 }
+- id: M11
+  descripcion: Tres señales con persistencia pero sin deterioro -> ofrecer tamizaje
+  hechos: { indicadores_emocionales: 3, persistencia: true, deterioro_funcional: false }
+  esperado: { categoria: C1, accion: OFRECER_TAMIZAJE, regla: R6 }
+- id: M12
+  descripcion: Señal de riesgo explícita -> escalamiento sin pasar por niveles intermedios
+  hechos: { nivel_riesgo: 1 }
+  esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, regla: R1 }
+- id: M13
+  descripcion: Riesgo prevalece sobre un tamizaje mínimo
+  hechos: { nivel_riesgo: 2, phq9_total: 2, phq9_item9: 0 }
+  esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, regla: R1 }
+- id: M14
+  descripcion: Expresión ambigua -> verificación directa (mhGAP)
+  hechos: { requiere_verificacion: true }
+  esperado: { categoria: C1, accion: VERIFICAR_RIESGO, regla: R2 }
+- id: M15
+  descripcion: Verificación positiva -> escalamiento prioritario
+  hechos: { verificacion_positiva: true }
+  esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, regla: R1 }
+- id: M16
+  descripcion: Derivación pertinente con solicitud ya activa -> seguimiento
+  hechos: { phq9_total: 14, phq9_item9: 0, solicitud_activa: true }
+  esperado: { categoria: C2, accion: SEGUIMIENTO_SOLICITUD, regla: R3 }
+- id: M17
+  descripcion: Derivación rechazada recientemente -> no insistir
+  hechos: { gad7_total: 16, derivacion_ofrecida_reciente: true }
+  esperado: { categoria: C2, accion: MONITOREO, regla: R3 }
+- id: M18
+  descripcion: El riesgo no se suprime aunque exista una solicitud activa
+  hechos: { nivel_riesgo: 3, solicitud_activa: true }
+  esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, regla: R1 }

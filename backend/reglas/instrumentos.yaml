@@ -1,0 +1,52 @@
+# =============================================================================
+# SAAC · Instrumentos de tamizaje
+# PHQ-9 (Kroenke et al., 2001) y GAD-7 (Spitzer et al., 2006), versión en
+# español de la familia Patient Health Questionnaire. Los instrumentos son de
+# libre reproducción (Pfizer). Antes de un uso real, verificar el texto contra la
+# versión oficial publicada en phqscreeners.com.
+# =============================================================================
+
+opciones:
+  - { valor: 0, texto: "Ningún día" }
+  - { valor: 1, texto: "Varios días" }
+  - { valor: 2, texto: "Más de la mitad de los días" }
+  - { valor: 3, texto: "Casi todos los días" }
+
+PHQ9:
+  nombre: "Cuestionario sobre tu estado de ánimo"
+  nombre_tecnico: "PHQ-9"
+  instruccion: "Durante las últimas 2 semanas, ¿qué tan seguido has tenido molestias debido a los siguientes problemas?"
+  items:
+    - "Poco interés o placer en hacer cosas"
+    - "Sentirte decaído(a), deprimido(a) o sin esperanzas"
+    - "Dificultad para quedarte o permanecer dormido(a), o dormir demasiado"
+    - "Sentirte cansado(a) o con poca energía"
+    - "Sin apetito o comer en exceso"
+    - "Sentirte mal contigo mismo(a), o que eres un fracaso o que has quedado mal contigo mismo(a) o con tu familia"
+    - "Dificultad para concentrarte en actividades, como leer o ver la televisión"
+    - "Moverte o hablar tan lento que otras personas podrían notarlo, o lo contrario: estar tan inquieto(a) que te mueves mucho más de lo normal"
+    - "Pensamientos de que estarías mejor muerto(a) o de lastimarte de alguna manera"
+  severidad:            # tabla 2 del documento
+    - { minimo: 0,  maximo: 4,  nivel: "Mínimo o ninguno" }
+    - { minimo: 5,  maximo: 9,  nivel: "Leve" }
+    - { minimo: 10, maximo: 14, nivel: "Moderado" }
+    - { minimo: 15, maximo: 19, nivel: "Moderadamente severo" }
+    - { minimo: 20, maximo: 27, nivel: "Severo" }
+
+GAD7:
+  nombre: "Cuestionario sobre preocupación y nerviosismo"
+  nombre_tecnico: "GAD-7"
+  instruccion: "Durante las últimas 2 semanas, ¿con qué frecuencia te han molestado los siguientes problemas?"
+  items:
+    - "Sentirte nervioso(a), ansioso(a) o con los nervios de punta"
+    - "No poder dejar de preocuparte o no poder controlar la preocupación"
+    - "Preocuparte demasiado por diferentes cosas"
+    - "Dificultad para relajarte"
+    - "Estar tan inquieto(a) que es difícil permanecer sentado(a) tranquilamente"
+    - "Molestarte o ponerte irritable fácilmente"
+    - "Sentir miedo como si algo terrible fuera a pasar"
+  severidad:            # tabla 3 del documento
+    - { minimo: 0,  maximo: 4,  nivel: "Mínimo" }
+    - { minimo: 5,  maximo: 9,  nivel: "Leve" }
+    - { minimo: 10, maximo: 14, nivel: "Moderado" }
+    - { minimo: 15, maximo: 21, nivel: "Severo" }

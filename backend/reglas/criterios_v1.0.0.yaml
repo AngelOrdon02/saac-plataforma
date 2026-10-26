@@ -1,0 +1,128 @@
+# =============================================================================
+# SAAC · Criterios de clasificación y derivación · versión 1.0.0
+#
+# Formalización de la tabla 4 del documento (categorías de respuesta documentadas
+# en la literatura). NO son criterios clínicos propios: los puntos de corte
+# provienen de instrumentos validados y los demás umbrales son parámetros
+# operativos que solo deciden CUÁNDO ofrecer un instrumento validado.
+#
+# Las reglas se evalúan en orden; la primera cuya condición se cumple determina
+# la categoría y la acción. Cada decisión queda registrada en la bitácora con
+# esta versión y con la huella SHA-256 de este archivo.
+#
+# Categorías:
+#   C0  Acompañamiento académico
+#   C1  Acompañamiento con monitoreo activo (NICE, 2011, primer escalón)
+#   C2  Derivación ordinaria
+#   C3  Escalamiento prioritario
+# =============================================================================
+
+version: "1.0.0"
+vigente_desde: "2026-10-19"
+
+parametros:
+  ventana_dias: 14                 # periodo de referencia del PHQ-9 y la GAD-7 (dos semanas)
+  min_indicadores_monitoreo: 2     # señales emocionales distintas para ofrecer el tamizaje
+  min_indicadores_derivacion: 3    # señales emocionales distintas junto con persistencia y deterioro
+  phq9_corte_derivacion: 10        # Kroenke et al. (2001): ≥10, sensibilidad y especificidad de 88 %
+  gad7_corte_derivacion: 10        # Spitzer et al. (2006): ≥10, sensibilidad 89 %, especificidad 82 %
+  phq9_corte_leve: 5
+  gad7_corte_leve: 5
+  dias_espera_reoferta: 7          # días sin volver a ofrecer algo que el estudiante rechazó
+  horas_oferta_pendiente: 24       # una oferta sin responder no se repite durante este lapso
+
+reglas:
+  - id: R1
+    nombre: Señal de riesgo
+    descripcion: >
+      Expresión de deseo de muerte, ideación o autolesión; respuesta distinta de
+      cero en el ítem 9 del PHQ-9; o confirmación en la verificación directa.
+    condicion:
+      cualquiera:
+        - { hecho: nivel_riesgo, op: ">=", valor: 1 }
+        - { hecho: phq9_item9, op: ">=", valor: 1 }
+        - { hecho: verificacion_positiva, op: "==", valor: true }
+    categoria: C3
+    accion: PROTOCOLO_RIESGO
+    fuentes: [OMS (2016), Posner et al. (2011), Kroenke et al. (2001), NICE (2011)]
+
+  - id: R2
+    nombre: Posible riesgo por verificar
+    descripcion: >
+      Expresión ambigua que podría indicar riesgo. Se pregunta de forma directa,
+      como recomienda la guía mhGAP, en lugar de suponer.
+    condicion:
+      todas:
+        - { hecho: requiere_verificacion, op: "==", valor: true }
+    categoria: C1
+    accion: VERIFICAR_RIESGO
+    fuentes: [OMS (2016)]
+
+  - id: R3
+    nombre: Tamizaje en rango moderado o superior
+    condicion:
+      cualquiera:
+        - { hecho: phq9_total, op: ">=", valor: $phq9_corte_derivacion }
+        - { hecho: gad7_total, op: ">=", valor: $gad7_corte_derivacion }
+    categoria: C2
+    accion: OFRECER_DERIVACION
+    fuentes: [Kroenke et al. (2001), Spitzer et al. (2006)]
+
+  - id: R4
+    nombre: Malestar persistente con deterioro funcional
+    condicion:
+      todas:
+        - { hecho: indicadores_emocionales, op: ">=", valor: $min_indicadores_derivacion }
+        - { hecho: persistencia, op: "==", valor: true }
+        - { hecho: deterioro_funcional, op: "==", valor: true }
+    categoria: C2
+    accion: OFRECER_DERIVACION
+    fuentes: [NICE (2011)]
+
+  - id: R5
+    nombre: Tamizaje en rango leve
+    condicion:
+      cualquiera:
+        - { hecho: phq9_total, op: ">=", valor: $phq9_corte_leve }
+        - { hecho: gad7_total, op: ">=", valor: $gad7_corte_leve }
+    categoria: C1
+    accion: MONITOREO
+    fuentes: [Kroenke et al. (2001), Spitzer et al. (2006), NICE (2011)]
+
+  - id: R6
+    nombre: Señales emocionales sin tamizaje
+    condicion:
+      todas:
+        - { hecho: indicadores_emocionales, op: ">=", valor: $min_indicadores_monitoreo }
+    categoria: C1
+    accion: OFRECER_TAMIZAJE
+    fuentes: [Bruffaerts et al. (2018), NICE (2011)]
+
+  - id: R7
+    nombre: Acompañamiento académico
+    condicion: { siempre: true }
+    categoria: C0
+    accion: ACOMPANAMIENTO
+    fuentes: [Dunlosky et al. (2013)]
+
+# Ajustes posteriores a la regla (no cambian la categoría, solo la acción):
+# evitan insistir al estudiante y repetir ofrecimientos ya atendidos.
+# 'ofrecido_reciente' = rechazado en los últimos 'dias_espera_reoferta' días, o
+# mostrado y sin respuesta en las últimas 'horas_oferta_pendiente' horas.
+supresiones:
+  - si_accion: OFRECER_TAMIZAJE
+    cuando:
+      cualquiera:
+        - { hecho: tamizaje_reciente, op: "==", valor: true }
+        - { hecho: tamizaje_ofrecido_reciente, op: "==", valor: true }
+    nueva_accion: MONITOREO
+  - si_accion: OFRECER_DERIVACION
+    cuando:
+      cualquiera:
+        - { hecho: solicitud_activa, op: "==", valor: true }
+    nueva_accion: SEGUIMIENTO_SOLICITUD
+  - si_accion: OFRECER_DERIVACION
+    cuando:
+      cualquiera:
+        - { hecho: derivacion_ofrecida_reciente, op: "==", valor: true }
+    nueva_accion: MONITOREO
