@@ -1,0 +1,67 @@
+# SAAC · Sistema de Acompañamiento Académico y Canalización
+# Uso:  cp .env.example .env   (y editar las claves)
+#       docker compose up -d --build
+#       docker compose --profile ia-local up -d      # además, levanta Ollama
+name: saac
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: saac
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${SAAC_BD_CLAVE_ADMIN}
+      SAAC_BD_CLAVE_ACADEMICO: ${SAAC_BD_CLAVE_ACADEMICO}
+      SAAC_BD_CLAVE_NUCLEO: ${SAAC_BD_CLAVE_NUCLEO}
+    volumes:
+      - datos_bd:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+      - ./db/migraciones:/migraciones:ro
+      - ./db/semillas:/semillas:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d saac"]
+      interval: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      SAAC_URL_BD_NUCLEO: postgresql+psycopg://saac_app_nucleo:${SAAC_BD_CLAVE_NUCLEO}@db:5432/saac
+      SAAC_URL_BD_ACADEMICO: postgresql+psycopg://saac_app_academico:${SAAC_BD_CLAVE_ACADEMICO}@db:5432/saac
+      SAAC_SMTP_HOST: mailpit
+      SAAC_SMTP_PUERTO: 1025
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  # Bandeja de correo de pruebas para ver las notificaciones (http://localhost:8025)
+  mailpit:
+    image: axllent/mailpit:v1.21
+    restart: unless-stopped
+    ports:
+      - "8025:8025"
+
+  # Modelos abiertos servidos localmente (opcional). Tras levantarlo:
+  #   docker compose exec ollama ollama pull qwen2.5:7b-instruct
+  #   docker compose exec ollama ollama pull bge-m3
+  ollama:
+    image: ollama/ollama:0.5.4
+    profiles: ["ia-local"]
+    restart: unless-stopped
+    volumes:
+      - modelos_ollama:/root/.ollama
+
+volumes:
+  datos_bd:
+  modelos_ollama:

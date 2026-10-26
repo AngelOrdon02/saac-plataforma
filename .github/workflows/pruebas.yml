@@ -1,0 +1,52 @@
+name: Pruebas
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: saac
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-retries 10
+    env:
+      PGPASSWORD: postgres
+      SAAC_ENTORNO: pruebas
+      SAAC_URL_BD_NUCLEO: postgresql+psycopg://saac_app_nucleo:nucleo@localhost:5432/saac
+      SAAC_URL_BD_ACADEMICO: postgresql+psycopg://saac_app_academico:academico@localhost:5432/saac
+      SAAC_PRUEBAS_INTEGRACION: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Migraciones
+        run: |
+          for f in db/migraciones/*.sql db/semillas/*.sql; do psql -h localhost -U postgres -d saac -v ON_ERROR_STOP=1 -f "$f"; done
+          psql -h localhost -U postgres -d saac -c "CREATE USER saac_app_academico WITH PASSWORD 'academico' IN ROLE rol_academico; CREATE USER saac_app_nucleo WITH PASSWORD 'nucleo' IN ROLE rol_nucleo;"
+      - name: Dependencias
+        working-directory: backend
+        run: pip install -r requirements-dev.txt
+      - name: Datos de prueba
+        working-directory: backend
+        run: python -m scripts.crear_usuarios_demo && python -m scripts.indexar_conocimiento
+      - name: Pruebas
+        working-directory: backend
+        run: python -m pytest -v
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - working-directory: frontend
+        run: npm ci && npm run build
