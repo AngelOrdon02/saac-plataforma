@@ -56,7 +56,9 @@ export default function Estudiante() {
     x.tipo === "accion" && tipos.includes(x.a.tipo) ? { ...x, resuelta: true } : x));
 
   const agregarAccion = (a: Accion) => {
-    if (a.tipo === "ACOMPANAMIENTO" || (!a.texto && a.recursos.length === 0)) return;
+    // El acompañamiento ordinario no trae tarjeta; solo se muestra si incluye un aviso o
+    // recursos (por ejemplo, cuando el servicio de modelos no está disponible).
+    if (!a.texto && a.recursos.length === 0) return;
     setEntradas((e) => [...e, { tipo: "accion", a, id: crypto.randomUUID() }]);
   };
 
@@ -72,6 +74,11 @@ export default function Estudiante() {
         ...(r.respuesta ? [{ tipo: "mensaje" as const, m: r.respuesta }] : [])]);
       agregarAccion(r.accion);
       cargarConversaciones();
+    } catch {
+      // Falla segura: el mensaje no se pierde y el estudiante ve a quién acudir.
+      setTexto(contenido);
+      agregarAccion({ tipo: "INFORMACION", recursos,
+        texto: "No pudimos procesar tu mensaje en este momento. Inténtalo de nuevo en unos minutos; si necesitas apoyo ahora, puedes acudir a estos servicios:" });
     } finally { setEnviando(false); }
   };
 

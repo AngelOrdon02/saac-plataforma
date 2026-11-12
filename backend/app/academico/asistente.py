@@ -42,6 +42,9 @@ CONTEXTO:
 RESPUESTA_SIN_SERVICIO = ("En este momento no puedo generar una respuesta completa. "
                           "Mientras tanto, estos materiales de la base de conocimiento pueden "
                           "ayudarte: {titulos}.")
+RESPUESTA_SIN_SERVICIO_GENERAL = ("En este momento el asistente no está disponible. Intenta de "
+                                  "nuevo en unos minutos; los recursos de apoyo de la "
+                                  "universidad siguen disponibles en todo momento.")
 
 
 @dataclass
@@ -64,7 +67,11 @@ def responder(sesion_academica: Session, proveedor: ProveedorIA, historial: list
     """``historial`` contiene los mensajes previos ya depurados de identificadores
     (``{"role": "user"|"assistant", "content": ...}``)."""
     cfg = obtener_configuracion()
-    fragmentos = buscar(sesion_academica, proveedor, consulta_depurada)
+    try:
+        fragmentos = buscar(sesion_academica, proveedor, consulta_depurada)
+    except ErrorProveedorIA:
+        # Sin embeddings no hay recuperación; se responde de forma degradada (falla segura)
+        fragmentos = []
     fuentes = [{"etiqueta": f"F{i}", "clave": f.clave, "titulo": f.titulo,
                 "referencia": f.referencia, "similitud": round(f.similitud, 3)}
                for i, f in enumerate(fragmentos, start=1)]
@@ -76,6 +83,7 @@ def responder(sesion_academica: Session, proveedor: ProveedorIA, historial: list
         texto = proveedor.generar(mensajes)
         return RespuestaAsistente(texto.strip(), fuentes, proveedor.nombre)
     except ErrorProveedorIA:
-        titulos = ", ".join(sorted({f.titulo for f in fragmentos})) or "técnicas de estudio"
-        return RespuestaAsistente(RESPUESTA_SIN_SERVICIO.format(titulos=titulos), fuentes,
-                                  proveedor.nombre, degradada=True)
+        titulos = ", ".join(sorted({f.titulo for f in fragmentos}))
+        texto = (RESPUESTA_SIN_SERVICIO.format(titulos=titulos) if titulos
+                 else RESPUESTA_SIN_SERVICIO_GENERAL)
+        return RespuestaAsistente(texto, fuentes, proveedor.nombre, degradada=True)

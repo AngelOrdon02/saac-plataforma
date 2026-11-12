@@ -38,6 +38,9 @@ ESTUDIANTE = requiere_permiso("conversacion:propia")
 # únicamente el mensaje fijo de la capa de canalización.
 ACCIONES_SIN_RESPUESTA_IA = {"PROTOCOLO_RIESGO", "VERIFICAR_RIESGO"}
 
+AVISO_SIN_SERVICIO = ("El asistente no está disponible en este momento. Si necesitas apoyo, "
+                      "puedes acudir a estos servicios:")
+
 
 def _conversacion_propia(sesion: Session, conversacion_id: uuid.UUID, seudonimo: str
                          ) -> Conversacion:
@@ -125,6 +128,12 @@ def enviar_mensaje(conversacion_id: uuid.UUID, datos: MensajeEntrada,
                             contenido_cifrado=cif.cifrar(r.texto), fuentes=r.fuentes)
         s_acad.add(respuesta)
         s_acad.flush()
+        if r.degradada and not accion.recursos:
+            # Falla segura (RNF-05): si el servicio de modelos no responde, se muestran
+            # los recursos de apoyo junto con la respuesta degradada.
+            accion.recursos = recursos_activos(s_nucleo, {"EMERGENCIA", "LINEA_APOYO",
+                                                          "INSTITUCIONAL"})
+            accion.texto = accion.texto or AVISO_SIN_SERVICIO
 
     return RespuestaChat(mensaje_estudiante=_salida(msg),
                          respuesta=_salida(respuesta) if respuesta else None, accion=accion)
