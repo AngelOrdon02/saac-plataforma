@@ -20,30 +20,38 @@ from app.modelos import Notificacion, SolicitudDerivacion, Usuario
 log = logging.getLogger("saac.notificaciones")
 
 
-def notificar_nueva_solicitud(sesion: Session, solicitud: SolicitudDerivacion) -> int:
+def notificar_nueva_solicitud(sesion: Session, solicitud: SolicitudDerivacion,
+                              prioridad_elevada: bool = False) -> int:
+    """Avisa al personal de una solicitud nueva o, con ``prioridad_elevada``, de que
+    una solicitud activa subió de prioridad por una señal de riesgo más grave."""
     cfg = obtener_configuracion()
     destinatarios = sesion.scalars(
         select(Usuario).where(Usuario.rol == "ATENCION", Usuario.activo.is_(True))).all()
-    asunto = f"[SAAC] Nueva solicitud {solicitud.codigo} · prioridad {solicitud.prioridad}"
+    motivo = "Prioridad elevada en la solicitud" if prioridad_elevada else "Nueva solicitud"
+    asunto = f"[SAAC] {motivo} {solicitud.codigo} · prioridad {solicitud.prioridad}"
     for persona in destinatarios:
         sesion.add(Notificacion(solicitud_id=solicitud.id, destinatario_id=persona.id,
                                 canal="APP", asunto=asunto, enviada=True))
         if cfg.smtp_host:
-            enviada = _enviar_correo(persona.correo, asunto, solicitud)
+            enviada = _enviar_correo(persona.correo, asunto, solicitud, prioridad_elevada)
             sesion.add(Notificacion(solicitud_id=solicitud.id, destinatario_id=persona.id,
                                     canal="CORREO", asunto=asunto, enviada=enviada))
     sesion.flush()
     return len(destinatarios)
 
 
-def _enviar_correo(destino: str, asunto: str, solicitud: SolicitudDerivacion) -> bool:
+def _enviar_correo(destino: str, asunto: str, solicitud: SolicitudDerivacion,
+                   prioridad_elevada: bool = False) -> bool:
     cfg = obtener_configuracion()
     msg = EmailMessage()
     msg["From"], msg["To"], msg["Subject"] = cfg.smtp_remitente, destino, asunto
     urgencia = ("Esta solicitud corresponde a un ESCALAMIENTO PRIORITARIO. "
                 "Atiéndala de inmediato." if solicitud.prioridad != "NORMAL" else "")
+    hecho = (f"La solicitud {solicitud.codigo} subió a prioridad {solicitud.prioridad} por una "
+             "nueva señal de riesgo." if prioridad_elevada else
+             f"Se registró la solicitud {solicitud.codigo} con prioridad {solicitud.prioridad}.")
     msg.set_content(
-        f"Se registró la solicitud {solicitud.codigo} con prioridad {solicitud.prioridad}.\n"
+        f"{hecho}\n"
         f"{urgencia}\n\nIngrese a {cfg.url_publica} para revisarla.\n\n"
         "Por protección de datos, este correo no incluye información del estudiante.")
     try:

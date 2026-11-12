@@ -151,6 +151,9 @@ def _prioridad(decision: Decision, riesgo: ResultadoRiesgo | None) -> str:
     return "NORMAL"
 
 
+RANGO_PRIORIDAD = {"NORMAL": 0, "ALTA": 1, "CRITICA": 2}
+
+
 # ---------------------------------------------------------------------------
 # Núcleo: evaluar, decidir, actuar y registrar
 # ---------------------------------------------------------------------------
@@ -180,6 +183,18 @@ def _decidir_y_actuar(sesion: Session, *, seudonimo: str, origen: str, evaluacio
         resultado.recursos = recursos_crisis(sesion)
         existente = solicitud_activa(sesion, seudonimo)
         if existente and existente.categoria == "C3":
+            # No se duplica la solicitud, pero si la nueva señal es más grave (p. ej. un
+            # plan después de una ideación), la prioridad sube y se avisa de nuevo al
+            # personal (tabla 27: nivel 3 -> prioridad crítica).
+            if RANGO_PRIORIDAD[prioridad] > RANGO_PRIORIDAD[existente.prioridad]:
+                anterior = existente.prioridad
+                existente.prioridad = prioridad
+                existente.actualizada_en = datetime.now(UTC)
+                existente.resumen = _resumen_para_personal(sesion, seudonimo, decision, hechos, riesgo)
+                sesion.flush()
+                notificar_nueva_solicitud(sesion, existente, prioridad_elevada=True)
+                evidencia_extra = {**(evidencia_extra or {}),
+                                   "prioridad_elevada": f"{anterior}->{prioridad}"}
             resultado.solicitud_codigo = existente.codigo
         else:
             usuario = sesion.scalar(select(Usuario).where(Usuario.seudonimo == seudonimo))
