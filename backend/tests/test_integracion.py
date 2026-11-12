@@ -96,6 +96,38 @@ def test_flujo_escalamiento_prioritario(cliente: TestClient) -> None:
     assert any(codigo in n["asunto"] for n in notifs)
 
 
+def test_senal_mas_grave_eleva_la_prioridad(cliente: TestClient) -> None:
+    h = _estudiante(cliente)
+    conv = cliente.post("/api/estudiante/conversaciones", json={}, headers=h).json()
+    ruta = f"/api/estudiante/conversaciones/{conv['id']}/mensajes"
+    primero = cliente.post(ruta, json={"texto": "He pensado en suicidarme"}, headers=h).json()
+    segundo = cliente.post(ruta, json={"texto": "Ya tengo un plan para matarme esta noche"},
+                           headers=h).json()
+    codigo = primero["accion"]["solicitud_codigo"]
+    assert segundo["accion"]["solicitud_codigo"] == codigo          # no se duplica la solicitud
+    hp = _ingresar(cliente, "psicologia@saac.demo")
+    sol = next(x for x in cliente.get("/api/atencion/solicitudes", headers=hp).json()
+               if x["codigo"] == codigo)
+    assert sol["prioridad"] == "CRITICA"                            # tabla 27: nivel 3
+    notifs = cliente.get("/api/atencion/notificaciones", headers=hp).json()
+    assert any(codigo in n["asunto"] and "Prioridad elevada" in n["asunto"] for n in notifs)
+
+
+def test_falla_segura_sin_servicio_de_modelos(cliente: TestClient, monkeypatch) -> None:
+    import app.api.rutas_estudiante as rutas
+    from tests.test_asistente import ProveedorCaido
+    monkeypatch.setattr(rutas, "obtener_proveedor", lambda: ProveedorCaido())
+    h = _estudiante(cliente)
+    conv = cliente.post("/api/estudiante/conversaciones", json={}, headers=h).json()
+    ruta = f"/api/estudiante/conversaciones/{conv['id']}/mensajes"
+    r = cliente.post(ruta, json={"texto": "¿Cómo organizo mi semana de parciales?"}, headers=h)
+    assert r.status_code == 200
+    assert r.json()["respuesta"] is not None                        # respuesta degradada
+    assert {x["tipo"] for x in r.json()["accion"]["recursos"]} >= {"EMERGENCIA", "INSTITUCIONAL"}
+    s = cliente.post(ruta, json={"texto": "He pensado en quitarme la vida"}, headers=h).json()
+    assert s["accion"]["tipo"] == "PROTOCOLO_RIESGO" and s["accion"]["solicitud_codigo"]
+
+
 def test_verificacion_directa(cliente: TestClient) -> None:
     h = _estudiante(cliente)
     [s] = _conversar(cliente, h, ["Ya no puedo más con todo"])
