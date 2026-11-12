@@ -1,0 +1,3 @@
+# Dependencias adicionales para ejecutar la evaluación (además de requirements-dev.txt)
+aiosmtpd==1.4.6
+psutil==7.2.2

@@ -1,0 +1,30 @@
+{
+ "mensajes": {
+  "¿Cómo hago un horario de estudio?": {
+   "accion": "ACOMPANAMIENTO",
+   "respuesta": "Respuesta del servicio externo de prueba [F1]."
+  },
+  "Me siento muy decaído y no puedo dormir": {
+   "accion": "OFRECER_TAMIZAJE",
+   "respuesta": "Respuesta del servicio externo de prueba [F1]."
+  }
+ },
+ "llamadas_servicio_externo": {
+  "chat": 4,
+  "embeddings": 2
+ },
+ "bitacora": [
+  [
+   "modelo-prueba@http://127.0.0.1:11500/v1",
+   [
+    "D2"
+   ]
+  ],
+  [
+   "modelo-prueba@http://127.0.0.1:11500/v1",
+   [
+    "D2"
+   ]
+  ]
+ ]
+}

@@ -1,0 +1,45 @@
+{
+  "espacio_a": {
+    "combinaciones": 1040704,
+    "discrepancias": 0,
+    "ejemplos": [],
+    "segundos": 3.1409339829999965,
+    "por_regla": {
+      "R7": 288,
+      "R6": 576,
+      "R4": 484,
+      "R5": 2040,
+      "R3": 13356,
+      "R1": 1007216,
+      "R2": 16744
+    }
+  },
+  "espacio_b": {
+    "combinaciones": 215040,
+    "discrepancias": 0,
+    "ejemplos": [],
+    "segundos": 1.4138736999999821
+  },
+  "propiedades": {
+    "P1_riesgo_siempre_C3": [
+      192000,
+      192000
+    ],
+    "P2_supresion_no_cambia_categoria": [
+      215040,
+      215040
+    ],
+    "P3_sin_supresion_en_riesgo": [
+      192000,
+      192000
+    ],
+    "P4_monotonicidad_puntajes": [
+      11500,
+      11500
+    ],
+    "P5_ausencia_de_tamizaje": [
+      28,
+      28
+    ]
+  }
+}

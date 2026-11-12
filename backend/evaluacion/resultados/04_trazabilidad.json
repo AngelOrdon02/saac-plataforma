@@ -1,0 +1,88 @@
+{
+  "evaluaciones": 94,
+  "registros_bitacora": 94,
+  "evaluaciones_con_un_registro": 94,
+  "registros_completos": 94,
+  "huella_y_version_vigentes": 94,
+  "decisiones_reproducidas": 94,
+  "no_reproducidas_ejemplos": [],
+  "fragmentos_de_texto_buscados": 60,
+  "fugas_en_canalizacion_y_auditoria": 0,
+  "fragmentos_legibles_en_mensajes": 0,
+  "verificacion": {
+    "decisiones": {
+      "integra": true,
+      "registros": 94,
+      "falla_en_id": null,
+      "motivo": null,
+      "ultimo_hash": "23c6f0934d57cd5e65bbd0dd885c22f800f46c23dfb638ba78f91acb6aae21ce"
+    },
+    "accesos": {
+      "integra": true,
+      "registros": 0,
+      "falla_en_id": null,
+      "motivo": null,
+      "ultimo_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "proteccion_modificacion": [
+    {
+      "prueba": "rol nucleo: UPDATE",
+      "bloqueado": true,
+      "motivo": "InsufficientPrivilege"
+    },
+    {
+      "prueba": "rol nucleo: DELETE",
+      "bloqueado": true,
+      "motivo": "InsufficientPrivilege"
+    },
+    {
+      "prueba": "superusuario: UPDATE",
+      "bloqueado": true,
+      "motivo": "La tabla auditoria.bitacora_decision es de solo inserción"
+    },
+    {
+      "prueba": "superusuario: DELETE",
+      "bloqueado": true,
+      "motivo": "La tabla auditoria.bitacora_decision es de solo inserción"
+    },
+    {
+      "prueba": "superusuario: TRUNCATE",
+      "bloqueado": true,
+      "motivo": "La tabla auditoria.bitacora_decision es de solo inserción"
+    }
+  ],
+  "alteraciones": [
+    {
+      "tipo": "modificar categoría y acción",
+      "registro": 47,
+      "integra": false,
+      "registros": 46,
+      "falla_en_id": 47,
+      "motivo": "El contenido del registro fue alterado"
+    },
+    {
+      "tipo": "eliminar un registro",
+      "registro": 47,
+      "integra": false,
+      "registros": 46,
+      "falla_en_id": 48,
+      "motivo": "El enlace con el registro anterior no coincide"
+    },
+    {
+      "tipo": "modificar y recalcular su propio hash",
+      "registro": 47,
+      "integra": false,
+      "registros": 47,
+      "falla_en_id": 48,
+      "motivo": "El enlace con el registro anterior no coincide"
+    }
+  ],
+  "cadena_tras_restaurar": {
+    "integra": true,
+    "registros": 94,
+    "falla_en_id": null,
+    "motivo": null,
+    "ultimo_hash": "23c6f0934d57cd5e65bbd0dd885c22f800f46c23dfb638ba78f91acb6aae21ce"
+  }
+}

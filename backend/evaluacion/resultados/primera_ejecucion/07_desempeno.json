@@ -1,0 +1,2557 @@
+{
+  "procesadores": 2,
+  "memoria_total_mb": 8022.44140625,
+  "en_proceso": {
+    "clasificacion_determinista": {
+      "n": 10000,
+      "media": 0.04620241079933294,
+      "p50": 0.04398549992856715,
+      "p95": 0.0704890999941199,
+      "p99": 0.08244783006716717,
+      "max": 0.3054320000046573,
+      "min": 0.026756000011118886
+    },
+    "canalizacion_con_base_de_datos": {
+      "n": 1000,
+      "media": 7.244609809000622,
+      "p50": 6.072210500008168,
+      "p95": 12.662519350033108,
+      "p99": 16.008834350138837,
+      "max": 62.04524200006745,
+      "min": 4.497334999996383
+    }
+  },
+  "escalones": [
+    {
+      "concurrencia": 1,
+      "solicitudes": 400,
+      "exitosas": 400,
+      "errores": 0,
+      "duracion_s": 6.2113955610000176,
+      "rendimiento_rps": 64.39776634280254,
+      "n": 400,
+      "media": 15.135766752510449,
+      "p50": 14.569965999953638,
+      "p95": 18.527959650123194,
+      "p99": 27.17187710995404,
+      "max": 68.12474100001964,
+      "min": 10.031967000031727
+    },
+    {
+      "concurrencia": 5,
+      "solicitudes": 400,
+      "exitosas": 400,
+      "errores": 0,
+      "duracion_s": 6.200082444000145,
+      "rendimiento_rps": 64.51527114564134,
+      "n": 400,
+      "media": 74.89664258250286,
+      "p50": 73.02434649989209,
+      "p95": 101.27551219986799,
+      "p99": 117.25158560993118,
+      "max": 136.9763069999408,
+      "min": 23.259807999920667
+    },
+    {
+      "concurrencia": 10,
+      "solicitudes": 400,
+      "exitosas": 400,
+      "errores": 0,
+      "duracion_s": 7.4120656659999895,
+      "rendimiento_rps": 53.966062636876885,
+      "n": 400,
+      "media": 181.55653370249863,
+      "p50": 181.10948499997903,
+      "p95": 227.90911435006365,
+      "p99": 243.06250332000442,
+      "max": 259.6104130000185,
+      "min": 59.29067200008831
+    },
+    {
+      "concurrencia": 20,
+      "solicitudes": 400,
+      "exitosas": 400,
+      "errores": 0,
+      "duracion_s": 6.764268108999886,
+      "rendimiento_rps": 59.13426161624173,
+      "n": 400,
+      "media": 330.1113814725005,
+      "p50": 328.09856000005766,
+      "p95": 400.1521321998895,
+      "p99": 445.52690089991756,
+      "max": 465.9259420000126,
+      "min": 54.372423999893726
+    },
+    {
+      "concurrencia": 40,
+      "solicitudes": 400,
+      "exitosas": 400,
+      "errores": 0,
+      "duracion_s": 7.958487918999936,
+      "rendimiento_rps": 50.26080381991257,
+      "n": 400,
+      "media": 761.4453395200087,
+      "p50": 786.6402774999415,
+      "p95": 897.5721978500246,
+      "p99": 1286.0851563298545,
+      "max": 1776.8208869999853,
+      "min": 175.87265900010607
+    }
+  ],
+  "sostenida": {
+    "concurrencia": 20,
+    "duracion_s": 300.91555703099993,
+    "solicitudes": 5840,
+    "exitosas": 5840,
+    "errores": 0,
+    "disponibilidad_pct": 100.0,
+    "rendimiento_rps": 19.407437945783478,
+    "latencia": {
+      "n": 5840,
+      "media": 31.845981321574854,
+      "p50": 25.79430200000843,
+      "p95": 61.32904565007494,
+      "p99": 97.35385947996052,
+      "max": 416.3466510001399,
+      "min": 10.639213000104064
+    },
+    "p95_por_minuto": {
+      "0": 73.14237080004209,
+      "1": 58.89808415006426,
+      "2": 55.79201790002348,
+      "3": 60.34525580016636,
+      "4": 59.31620509990128
+    },
+    "api_cpu_pct": {
+      "media": 31.537209302325582,
+      "max": 61.8
+    },
+    "api_mem_mb": {
+      "media": 120.09416528239203,
+      "max": 120.95703125
+    },
+    "postgres_cpu_pct": {
+      "media": 0.973421926910299,
+      "max": 3.0
+    },
+    "postgres_mem_mb": {
+      "media": 139.31190303156146,
+      "max": 163.66796875
+    },
+    "sistema_mem_mb": {
+      "media": 731.6421563538206,
+      "max": 797.2890625
+    },
+    "muestras": 301,
+    "serie": [
+      {
+        "t": 1794453731.01,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.96,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 149.81,
+        "sistema_mem_mb": 797.29
+      },
+      {
+        "t": 1794453732.02,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.74,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 150.05,
+        "sistema_mem_mb": 788.79
+      },
+      {
+        "t": 1794453733.02,
+        "api_cpu": 41.0,
+        "api_mem_mb": 120.74,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 150.41,
+        "sistema_mem_mb": 781.91
+      },
+      {
+        "t": 1794453734.02,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.77,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 150.47,
+        "sistema_mem_mb": 775.9
+      },
+      {
+        "t": 1794453735.02,
+        "api_cpu": 41.0,
+        "api_mem_mb": 120.77,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 150.74,
+        "sistema_mem_mb": 770.19
+      },
+      {
+        "t": 1794453736.02,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.8,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 150.79,
+        "sistema_mem_mb": 765.74
+      },
+      {
+        "t": 1794453737.02,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.8,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 150.89,
+        "sistema_mem_mb": 757.72
+      },
+      {
+        "t": 1794453738.02,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.8,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 151.07,
+        "sistema_mem_mb": 754.1
+      },
+      {
+        "t": 1794453739.02,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.8,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 151.07,
+        "sistema_mem_mb": 751.15
+      },
+      {
+        "t": 1794453740.02,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.8,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 151.18,
+        "sistema_mem_mb": 744.51
+      },
+      {
+        "t": 1794453741.02,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.15,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 151.29,
+        "sistema_mem_mb": 734.76
+      },
+      {
+        "t": 1794453742.02,
+        "api_cpu": 26.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 151.36,
+        "sistema_mem_mb": 732.38
+      },
+      {
+        "t": 1794453743.03,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 151.41,
+        "sistema_mem_mb": 730.08
+      },
+      {
+        "t": 1794453744.03,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 151.58,
+        "sistema_mem_mb": 728.54
+      },
+      {
+        "t": 1794453745.03,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 151.74,
+        "sistema_mem_mb": 727.7
+      },
+      {
+        "t": 1794453746.03,
+        "api_cpu": 40.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 151.95,
+        "sistema_mem_mb": 727.61
+      },
+      {
+        "t": 1794453747.03,
+        "api_cpu": 30.9,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 152.06,
+        "sistema_mem_mb": 727.64
+      },
+      {
+        "t": 1794453748.03,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 152.47,
+        "sistema_mem_mb": 727.56
+      },
+      {
+        "t": 1794453749.03,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 152.62,
+        "sistema_mem_mb": 727.63
+      },
+      {
+        "t": 1794453750.03,
+        "api_cpu": 39.9,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 153.07,
+        "sistema_mem_mb": 727.76
+      },
+      {
+        "t": 1794453751.04,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 153.12,
+        "sistema_mem_mb": 727.61
+      },
+      {
+        "t": 1794453752.04,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 153.16,
+        "sistema_mem_mb": 727.7
+      },
+      {
+        "t": 1794453753.04,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 153.37,
+        "sistema_mem_mb": 727.85
+      },
+      {
+        "t": 1794453754.04,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 153.41,
+        "sistema_mem_mb": 727.73
+      },
+      {
+        "t": 1794453755.04,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 153.47,
+        "sistema_mem_mb": 727.77
+      },
+      {
+        "t": 1794453756.04,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 153.56,
+        "sistema_mem_mb": 727.77
+      },
+      {
+        "t": 1794453757.04,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 153.7,
+        "sistema_mem_mb": 727.06
+      },
+      {
+        "t": 1794453758.04,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 153.76,
+        "sistema_mem_mb": 727.14
+      },
+      {
+        "t": 1794453759.04,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 153.9,
+        "sistema_mem_mb": 727.01
+      },
+      {
+        "t": 1794453760.04,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 153.95,
+        "sistema_mem_mb": 726.94
+      },
+      {
+        "t": 1794453761.04,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.1,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 154.12,
+        "sistema_mem_mb": 727.03
+      },
+      {
+        "t": 1794453762.05,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 154.21,
+        "sistema_mem_mb": 725.09
+      },
+      {
+        "t": 1794453763.05,
+        "api_cpu": 24.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 154.45,
+        "sistema_mem_mb": 725.02
+      },
+      {
+        "t": 1794453764.05,
+        "api_cpu": 40.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 154.63,
+        "sistema_mem_mb": 724.97
+      },
+      {
+        "t": 1794453765.05,
+        "api_cpu": 42.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 154.82,
+        "sistema_mem_mb": 725.13
+      },
+      {
+        "t": 1794453766.05,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 154.98,
+        "sistema_mem_mb": 725.16
+      },
+      {
+        "t": 1794453767.05,
+        "api_cpu": 43.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 155.05,
+        "sistema_mem_mb": 725.35
+      },
+      {
+        "t": 1794453768.05,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 155.12,
+        "sistema_mem_mb": 725.3
+      },
+      {
+        "t": 1794453769.05,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 155.29,
+        "sistema_mem_mb": 725.27
+      },
+      {
+        "t": 1794453770.05,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 155.39,
+        "sistema_mem_mb": 725.26
+      },
+      {
+        "t": 1794453771.06,
+        "api_cpu": 61.8,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 155.49,
+        "sistema_mem_mb": 725.17
+      },
+      {
+        "t": 1794453772.06,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.08,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 155.66,
+        "sistema_mem_mb": 725.12
+      },
+      {
+        "t": 1794453773.06,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.08,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 155.75,
+        "sistema_mem_mb": 725.05
+      },
+      {
+        "t": 1794453774.06,
+        "api_cpu": 22.0,
+        "api_mem_mb": 120.08,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 155.89,
+        "sistema_mem_mb": 724.97
+      },
+      {
+        "t": 1794453775.06,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.08,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 156.01,
+        "sistema_mem_mb": 725.13
+      },
+      {
+        "t": 1794453776.06,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.08,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 156.11,
+        "sistema_mem_mb": 725.12
+      },
+      {
+        "t": 1794453777.06,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 156.17,
+        "sistema_mem_mb": 725.25
+      },
+      {
+        "t": 1794453778.06,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 156.62,
+        "sistema_mem_mb": 725.81
+      },
+      {
+        "t": 1794453779.06,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 156.63,
+        "sistema_mem_mb": 725.8
+      },
+      {
+        "t": 1794453780.06,
+        "api_cpu": 29.9,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 156.66,
+        "sistema_mem_mb": 725.75
+      },
+      {
+        "t": 1794453781.07,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 156.67,
+        "sistema_mem_mb": 725.92
+      },
+      {
+        "t": 1794453782.07,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 156.73,
+        "sistema_mem_mb": 725.9
+      },
+      {
+        "t": 1794453783.07,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 156.87,
+        "sistema_mem_mb": 725.83
+      },
+      {
+        "t": 1794453784.07,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 156.99,
+        "sistema_mem_mb": 726.01
+      },
+      {
+        "t": 1794453785.07,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 157.1,
+        "sistema_mem_mb": 725.95
+      },
+      {
+        "t": 1794453786.07,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 157.12,
+        "sistema_mem_mb": 725.88
+      },
+      {
+        "t": 1794453787.07,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 157.29,
+        "sistema_mem_mb": 725.87
+      },
+      {
+        "t": 1794453788.07,
+        "api_cpu": 24.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 157.37,
+        "sistema_mem_mb": 725.98
+      },
+      {
+        "t": 1794453789.07,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 157.49,
+        "sistema_mem_mb": 725.94
+      },
+      {
+        "t": 1794453790.07,
+        "api_cpu": 25.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 157.69,
+        "sistema_mem_mb": 725.85
+      },
+      {
+        "t": 1794453791.07,
+        "api_cpu": 25.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 157.8,
+        "sistema_mem_mb": 725.78
+      },
+      {
+        "t": 1794453792.08,
+        "api_cpu": 31.9,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 157.94,
+        "sistema_mem_mb": 725.93
+      },
+      {
+        "t": 1794453793.08,
+        "api_cpu": 26.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 158.02,
+        "sistema_mem_mb": 725.87
+      },
+      {
+        "t": 1794453794.08,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 158.23,
+        "sistema_mem_mb": 726.0
+      },
+      {
+        "t": 1794453795.08,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 158.3,
+        "sistema_mem_mb": 725.96
+      },
+      {
+        "t": 1794453796.08,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 158.36,
+        "sistema_mem_mb": 725.94
+      },
+      {
+        "t": 1794453797.08,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 158.48,
+        "sistema_mem_mb": 725.85
+      },
+      {
+        "t": 1794453798.08,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 158.79,
+        "sistema_mem_mb": 726.03
+      },
+      {
+        "t": 1794453799.08,
+        "api_cpu": 41.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 158.94,
+        "sistema_mem_mb": 725.94
+      },
+      {
+        "t": 1794453800.08,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 158.95,
+        "sistema_mem_mb": 725.9
+      },
+      {
+        "t": 1794453801.08,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 159.16,
+        "sistema_mem_mb": 726.07
+      },
+      {
+        "t": 1794453802.09,
+        "api_cpu": 31.9,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 159.22,
+        "sistema_mem_mb": 726.06
+      },
+      {
+        "t": 1794453803.09,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 159.31,
+        "sistema_mem_mb": 726.18
+      },
+      {
+        "t": 1794453804.09,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 159.44,
+        "sistema_mem_mb": 726.18
+      },
+      {
+        "t": 1794453805.09,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 159.51,
+        "sistema_mem_mb": 726.06
+      },
+      {
+        "t": 1794453806.09,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 159.68,
+        "sistema_mem_mb": 726.01
+      },
+      {
+        "t": 1794453807.09,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 159.76,
+        "sistema_mem_mb": 726.2
+      },
+      {
+        "t": 1794453808.09,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 159.85,
+        "sistema_mem_mb": 726.15
+      },
+      {
+        "t": 1794453809.09,
+        "api_cpu": 22.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 159.88,
+        "sistema_mem_mb": 726.07
+      },
+      {
+        "t": 1794453810.09,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 160.05,
+        "sistema_mem_mb": 725.99
+      },
+      {
+        "t": 1794453811.1,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 160.25,
+        "sistema_mem_mb": 725.92
+      },
+      {
+        "t": 1794453812.1,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 160.34,
+        "sistema_mem_mb": 726.09
+      },
+      {
+        "t": 1794453813.1,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 160.37,
+        "sistema_mem_mb": 726.09
+      },
+      {
+        "t": 1794453814.1,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 160.49,
+        "sistema_mem_mb": 726.23
+      },
+      {
+        "t": 1794453815.1,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 160.52,
+        "sistema_mem_mb": 726.2
+      },
+      {
+        "t": 1794453816.1,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.06,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 160.62,
+        "sistema_mem_mb": 726.14
+      },
+      {
+        "t": 1794453817.1,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.08,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 160.94,
+        "sistema_mem_mb": 726.04
+      },
+      {
+        "t": 1794453818.1,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 160.94,
+        "sistema_mem_mb": 726.24
+      },
+      {
+        "t": 1794453819.1,
+        "api_cpu": 22.0,
+        "api_mem_mb": 120.12,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 161.07,
+        "sistema_mem_mb": 726.17
+      },
+      {
+        "t": 1794453820.1,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.12,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 161.22,
+        "sistema_mem_mb": 726.17
+      },
+      {
+        "t": 1794453821.1,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.12,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 161.29,
+        "sistema_mem_mb": 726.32
+      },
+      {
+        "t": 1794453822.1,
+        "api_cpu": 26.0,
+        "api_mem_mb": 120.12,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 161.35,
+        "sistema_mem_mb": 726.27
+      },
+      {
+        "t": 1794453823.11,
+        "api_cpu": 24.9,
+        "api_mem_mb": 120.12,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 161.5,
+        "sistema_mem_mb": 726.25
+      },
+      {
+        "t": 1794453824.11,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.12,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 161.51,
+        "sistema_mem_mb": 726.38
+      },
+      {
+        "t": 1794453825.11,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.12,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 161.66,
+        "sistema_mem_mb": 726.35
+      },
+      {
+        "t": 1794453826.11,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.12,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 161.67,
+        "sistema_mem_mb": 726.32
+      },
+      {
+        "t": 1794453827.11,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.12,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 161.79,
+        "sistema_mem_mb": 726.24
+      },
+      {
+        "t": 1794453828.11,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 161.89,
+        "sistema_mem_mb": 726.18
+      },
+      {
+        "t": 1794453829.11,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 162.06,
+        "sistema_mem_mb": 727.09
+      },
+      {
+        "t": 1794453830.11,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 162.18,
+        "sistema_mem_mb": 727.07
+      },
+      {
+        "t": 1794453831.11,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 162.19,
+        "sistema_mem_mb": 727.2
+      },
+      {
+        "t": 1794453832.11,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 162.32,
+        "sistema_mem_mb": 727.18
+      },
+      {
+        "t": 1794453833.12,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 162.44,
+        "sistema_mem_mb": 727.07
+      },
+      {
+        "t": 1794453834.12,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 162.51,
+        "sistema_mem_mb": 727.07
+      },
+      {
+        "t": 1794453835.12,
+        "api_cpu": 20.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 162.61,
+        "sistema_mem_mb": 727.2
+      },
+      {
+        "t": 1794453836.12,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 162.75,
+        "sistema_mem_mb": 727.16
+      },
+      {
+        "t": 1794453837.12,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 162.86,
+        "sistema_mem_mb": 727.2
+      },
+      {
+        "t": 1794453838.12,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 163.34,
+        "sistema_mem_mb": 719.25
+      },
+      {
+        "t": 1794453839.12,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 163.43,
+        "sistema_mem_mb": 719.41
+      },
+      {
+        "t": 1794453840.12,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 163.54,
+        "sistema_mem_mb": 719.36
+      },
+      {
+        "t": 1794453841.12,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 163.67,
+        "sistema_mem_mb": 719.22
+      },
+      {
+        "t": 1794453842.12,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 123.52,
+        "sistema_mem_mb": 719.08
+      },
+      {
+        "t": 1794453843.12,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 123.54,
+        "sistema_mem_mb": 719.25
+      },
+      {
+        "t": 1794453844.12,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 123.66,
+        "sistema_mem_mb": 719.17
+      },
+      {
+        "t": 1794453845.13,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 123.75,
+        "sistema_mem_mb": 719.1
+      },
+      {
+        "t": 1794453846.13,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 123.79,
+        "sistema_mem_mb": 719.1
+      },
+      {
+        "t": 1794453847.13,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 123.79,
+        "sistema_mem_mb": 719.02
+      },
+      {
+        "t": 1794453848.13,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 123.81,
+        "sistema_mem_mb": 719.17
+      },
+      {
+        "t": 1794453849.13,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 123.81,
+        "sistema_mem_mb": 719.15
+      },
+      {
+        "t": 1794453850.13,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.11,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 123.87,
+        "sistema_mem_mb": 719.3
+      },
+      {
+        "t": 1794453851.13,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 123.87,
+        "sistema_mem_mb": 719.27
+      },
+      {
+        "t": 1794453852.13,
+        "api_cpu": 25.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 123.93,
+        "sistema_mem_mb": 719.21
+      },
+      {
+        "t": 1794453853.13,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.12,
+        "sistema_mem_mb": 719.2
+      },
+      {
+        "t": 1794453854.13,
+        "api_cpu": 18.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.13,
+        "sistema_mem_mb": 719.13
+      },
+      {
+        "t": 1794453855.13,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 124.21,
+        "sistema_mem_mb": 719.11
+      },
+      {
+        "t": 1794453856.13,
+        "api_cpu": 23.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.21,
+        "sistema_mem_mb": 719.24
+      },
+      {
+        "t": 1794453857.14,
+        "api_cpu": 26.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 124.27,
+        "sistema_mem_mb": 719.23
+      },
+      {
+        "t": 1794453858.14,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.27,
+        "sistema_mem_mb": 719.14
+      },
+      {
+        "t": 1794453859.14,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.29,
+        "sistema_mem_mb": 719.11
+      },
+      {
+        "t": 1794453860.14,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 124.3,
+        "sistema_mem_mb": 719.02
+      },
+      {
+        "t": 1794453861.14,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.34,
+        "sistema_mem_mb": 719.18
+      },
+      {
+        "t": 1794453862.14,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.35,
+        "sistema_mem_mb": 719.56
+      },
+      {
+        "t": 1794453863.14,
+        "api_cpu": 31.9,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 124.38,
+        "sistema_mem_mb": 719.54
+      },
+      {
+        "t": 1794453864.14,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.39,
+        "sistema_mem_mb": 719.5
+      },
+      {
+        "t": 1794453865.14,
+        "api_cpu": 24.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.44,
+        "sistema_mem_mb": 719.37
+      },
+      {
+        "t": 1794453866.14,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 124.5,
+        "sistema_mem_mb": 719.27
+      },
+      {
+        "t": 1794453867.15,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.56,
+        "sistema_mem_mb": 719.48
+      },
+      {
+        "t": 1794453868.15,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.6,
+        "sistema_mem_mb": 719.71
+      },
+      {
+        "t": 1794453869.15,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.61,
+        "sistema_mem_mb": 719.58
+      },
+      {
+        "t": 1794453870.15,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 124.79,
+        "sistema_mem_mb": 719.77
+      },
+      {
+        "t": 1794453871.15,
+        "api_cpu": 22.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.84,
+        "sistema_mem_mb": 719.7
+      },
+      {
+        "t": 1794453872.15,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 124.84,
+        "sistema_mem_mb": 719.66
+      },
+      {
+        "t": 1794453873.15,
+        "api_cpu": 22.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.88,
+        "sistema_mem_mb": 719.83
+      },
+      {
+        "t": 1794453874.15,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 124.88,
+        "sistema_mem_mb": 719.8
+      },
+      {
+        "t": 1794453875.15,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 124.98,
+        "sistema_mem_mb": 719.97
+      },
+      {
+        "t": 1794453876.15,
+        "api_cpu": 26.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 125.02,
+        "sistema_mem_mb": 720.16
+      },
+      {
+        "t": 1794453877.15,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.06,
+        "sistema_mem_mb": 722.08
+      },
+      {
+        "t": 1794453878.16,
+        "api_cpu": 26.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 125.06,
+        "sistema_mem_mb": 722.04
+      },
+      {
+        "t": 1794453879.16,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.16,
+        "sistema_mem_mb": 721.97
+      },
+      {
+        "t": 1794453880.16,
+        "api_cpu": 43.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 125.2,
+        "sistema_mem_mb": 722.33
+      },
+      {
+        "t": 1794453881.16,
+        "api_cpu": 24.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 125.2,
+        "sistema_mem_mb": 722.32
+      },
+      {
+        "t": 1794453882.16,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.2,
+        "sistema_mem_mb": 722.49
+      },
+      {
+        "t": 1794453883.16,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 125.27,
+        "sistema_mem_mb": 722.44
+      },
+      {
+        "t": 1794453884.16,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 125.3,
+        "sistema_mem_mb": 722.4
+      },
+      {
+        "t": 1794453885.16,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.3,
+        "sistema_mem_mb": 722.35
+      },
+      {
+        "t": 1794453886.16,
+        "api_cpu": 27.9,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.34,
+        "sistema_mem_mb": 722.25
+      },
+      {
+        "t": 1794453887.16,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 125.34,
+        "sistema_mem_mb": 722.22
+      },
+      {
+        "t": 1794453888.17,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.39,
+        "sistema_mem_mb": 722.39
+      },
+      {
+        "t": 1794453889.17,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 125.39,
+        "sistema_mem_mb": 722.36
+      },
+      {
+        "t": 1794453890.17,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.45,
+        "sistema_mem_mb": 722.48
+      },
+      {
+        "t": 1794453891.17,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 125.51,
+        "sistema_mem_mb": 722.41
+      },
+      {
+        "t": 1794453892.17,
+        "api_cpu": 21.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.51,
+        "sistema_mem_mb": 722.33
+      },
+      {
+        "t": 1794453893.17,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 125.62,
+        "sistema_mem_mb": 722.33
+      },
+      {
+        "t": 1794453894.17,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.62,
+        "sistema_mem_mb": 722.23
+      },
+      {
+        "t": 1794453895.17,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 125.77,
+        "sistema_mem_mb": 722.4
+      },
+      {
+        "t": 1794453896.17,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.77,
+        "sistema_mem_mb": 722.32
+      },
+      {
+        "t": 1794453897.17,
+        "api_cpu": 23.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.79,
+        "sistema_mem_mb": 737.97
+      },
+      {
+        "t": 1794453898.17,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 125.98,
+        "sistema_mem_mb": 738.07
+      },
+      {
+        "t": 1794453899.17,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 125.98,
+        "sistema_mem_mb": 738.05
+      },
+      {
+        "t": 1794453900.18,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.02,
+        "sistema_mem_mb": 736.59
+      },
+      {
+        "t": 1794453901.18,
+        "api_cpu": 30.9,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.03,
+        "sistema_mem_mb": 734.33
+      },
+      {
+        "t": 1794453902.18,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.05,
+        "sistema_mem_mb": 732.15
+      },
+      {
+        "t": 1794453903.18,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.13,
+        "sistema_mem_mb": 730.36
+      },
+      {
+        "t": 1794453904.18,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.3,
+        "sistema_mem_mb": 729.79
+      },
+      {
+        "t": 1794453905.18,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.33,
+        "sistema_mem_mb": 729.71
+      },
+      {
+        "t": 1794453906.18,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 126.34,
+        "sistema_mem_mb": 729.69
+      },
+      {
+        "t": 1794453907.18,
+        "api_cpu": 26.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.42,
+        "sistema_mem_mb": 729.87
+      },
+      {
+        "t": 1794453908.18,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.43,
+        "sistema_mem_mb": 730.03
+      },
+      {
+        "t": 1794453909.19,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.5,
+        "sistema_mem_mb": 729.94
+      },
+      {
+        "t": 1794453910.19,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 126.55,
+        "sistema_mem_mb": 729.87
+      },
+      {
+        "t": 1794453911.19,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.55,
+        "sistema_mem_mb": 729.84
+      },
+      {
+        "t": 1794453912.19,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 126.58,
+        "sistema_mem_mb": 729.76
+      },
+      {
+        "t": 1794453913.19,
+        "api_cpu": 24.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.58,
+        "sistema_mem_mb": 729.88
+      },
+      {
+        "t": 1794453914.19,
+        "api_cpu": 28.9,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 126.73,
+        "sistema_mem_mb": 729.83
+      },
+      {
+        "t": 1794453915.19,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.73,
+        "sistema_mem_mb": 729.81
+      },
+      {
+        "t": 1794453916.19,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.75,
+        "sistema_mem_mb": 729.76
+      },
+      {
+        "t": 1794453917.19,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 126.76,
+        "sistema_mem_mb": 731.66
+      },
+      {
+        "t": 1794453918.19,
+        "api_cpu": 22.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.79,
+        "sistema_mem_mb": 731.77
+      },
+      {
+        "t": 1794453919.19,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 126.79,
+        "sistema_mem_mb": 731.75
+      },
+      {
+        "t": 1794453920.19,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.82,
+        "sistema_mem_mb": 731.64
+      },
+      {
+        "t": 1794453921.2,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.85,
+        "sistema_mem_mb": 731.62
+      },
+      {
+        "t": 1794453922.2,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 126.86,
+        "sistema_mem_mb": 731.5
+      },
+      {
+        "t": 1794453923.2,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.9,
+        "sistema_mem_mb": 731.48
+      },
+      {
+        "t": 1794453924.2,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 126.9,
+        "sistema_mem_mb": 731.61
+      },
+      {
+        "t": 1794453925.2,
+        "api_cpu": 35.9,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.01,
+        "sistema_mem_mb": 731.77
+      },
+      {
+        "t": 1794453926.2,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.02,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.07,
+        "sistema_mem_mb": 731.71
+      },
+      {
+        "t": 1794453927.2,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.02,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 127.08,
+        "sistema_mem_mb": 731.7
+      },
+      {
+        "t": 1794453928.2,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.2,
+        "sistema_mem_mb": 731.59
+      },
+      {
+        "t": 1794453929.2,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.2,
+        "sistema_mem_mb": 731.56
+      },
+      {
+        "t": 1794453930.2,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.27,
+        "sistema_mem_mb": 731.52
+      },
+      {
+        "t": 1794453931.2,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.27,
+        "sistema_mem_mb": 731.46
+      },
+      {
+        "t": 1794453932.21,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 127.34,
+        "sistema_mem_mb": 731.39
+      },
+      {
+        "t": 1794453933.21,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.39,
+        "sistema_mem_mb": 731.5
+      },
+      {
+        "t": 1794453934.21,
+        "api_cpu": 41.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.49,
+        "sistema_mem_mb": 731.68
+      },
+      {
+        "t": 1794453935.21,
+        "api_cpu": 25.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 127.53,
+        "sistema_mem_mb": 731.63
+      },
+      {
+        "t": 1794453936.21,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.61,
+        "sistema_mem_mb": 731.63
+      },
+      {
+        "t": 1794453937.21,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 127.7,
+        "sistema_mem_mb": 734.16
+      },
+      {
+        "t": 1794453938.21,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 128.06,
+        "sistema_mem_mb": 734.31
+      },
+      {
+        "t": 1794453939.21,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 128.21,
+        "sistema_mem_mb": 734.39
+      },
+      {
+        "t": 1794453940.21,
+        "api_cpu": 42.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 128.21,
+        "sistema_mem_mb": 734.18
+      },
+      {
+        "t": 1794453941.21,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 128.31,
+        "sistema_mem_mb": 734.99
+      },
+      {
+        "t": 1794453942.21,
+        "api_cpu": 24.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 128.32,
+        "sistema_mem_mb": 735.25
+      },
+      {
+        "t": 1794453943.22,
+        "api_cpu": 34.9,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 128.35,
+        "sistema_mem_mb": 735.12
+      },
+      {
+        "t": 1794453944.22,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 128.38,
+        "sistema_mem_mb": 735.2
+      },
+      {
+        "t": 1794453945.22,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 128.45,
+        "sistema_mem_mb": 735.08
+      },
+      {
+        "t": 1794453946.22,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 128.54,
+        "sistema_mem_mb": 735.34
+      },
+      {
+        "t": 1794453947.22,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 128.61,
+        "sistema_mem_mb": 735.22
+      },
+      {
+        "t": 1794453948.22,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 128.64,
+        "sistema_mem_mb": 735.21
+      },
+      {
+        "t": 1794453949.22,
+        "api_cpu": 46.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 128.66,
+        "sistema_mem_mb": 735.34
+      },
+      {
+        "t": 1794453950.22,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 128.67,
+        "sistema_mem_mb": 735.08
+      },
+      {
+        "t": 1794453951.22,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 128.79,
+        "sistema_mem_mb": 735.23
+      },
+      {
+        "t": 1794453952.22,
+        "api_cpu": 43.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 128.86,
+        "sistema_mem_mb": 735.25
+      },
+      {
+        "t": 1794453953.22,
+        "api_cpu": 25.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 128.96,
+        "sistema_mem_mb": 735.13
+      },
+      {
+        "t": 1794453954.23,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 128.97,
+        "sistema_mem_mb": 735.3
+      },
+      {
+        "t": 1794453955.23,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 129.09,
+        "sistema_mem_mb": 735.11
+      },
+      {
+        "t": 1794453956.23,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 129.09,
+        "sistema_mem_mb": 735.1
+      },
+      {
+        "t": 1794453957.23,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 129.14,
+        "sistema_mem_mb": 742.68
+      },
+      {
+        "t": 1794453958.23,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 129.21,
+        "sistema_mem_mb": 750.94
+      },
+      {
+        "t": 1794453959.23,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 129.27,
+        "sistema_mem_mb": 748.14
+      },
+      {
+        "t": 1794453960.23,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.05,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 129.28,
+        "sistema_mem_mb": 745.6
+      },
+      {
+        "t": 1794453961.23,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 129.39,
+        "sistema_mem_mb": 743.06
+      },
+      {
+        "t": 1794453962.23,
+        "api_cpu": 20.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 129.4,
+        "sistema_mem_mb": 741.16
+      },
+      {
+        "t": 1794453963.23,
+        "api_cpu": 36.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 129.43,
+        "sistema_mem_mb": 739.25
+      },
+      {
+        "t": 1794453964.23,
+        "api_cpu": 41.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 129.44,
+        "sistema_mem_mb": 739.31
+      },
+      {
+        "t": 1794453965.24,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 129.5,
+        "sistema_mem_mb": 739.32
+      },
+      {
+        "t": 1794453966.24,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 129.75,
+        "sistema_mem_mb": 739.54
+      },
+      {
+        "t": 1794453967.24,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 129.81,
+        "sistema_mem_mb": 739.45
+      },
+      {
+        "t": 1794453968.24,
+        "api_cpu": 26.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 130.28,
+        "sistema_mem_mb": 739.56
+      },
+      {
+        "t": 1794453969.24,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 130.47,
+        "sistema_mem_mb": 739.61
+      },
+      {
+        "t": 1794453970.24,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 130.57,
+        "sistema_mem_mb": 739.82
+      },
+      {
+        "t": 1794453971.24,
+        "api_cpu": 30.9,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 130.59,
+        "sistema_mem_mb": 739.54
+      },
+      {
+        "t": 1794453972.24,
+        "api_cpu": 25.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 130.63,
+        "sistema_mem_mb": 739.96
+      },
+      {
+        "t": 1794453973.24,
+        "api_cpu": 22.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 130.64,
+        "sistema_mem_mb": 739.76
+      },
+      {
+        "t": 1794453974.24,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 130.72,
+        "sistema_mem_mb": 739.86
+      },
+      {
+        "t": 1794453975.24,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 130.82,
+        "sistema_mem_mb": 739.71
+      },
+      {
+        "t": 1794453976.24,
+        "api_cpu": 23.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 130.89,
+        "sistema_mem_mb": 739.71
+      },
+      {
+        "t": 1794453977.25,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 130.96,
+        "sistema_mem_mb": 739.86
+      },
+      {
+        "t": 1794453978.25,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 130.96,
+        "sistema_mem_mb": 739.82
+      },
+      {
+        "t": 1794453979.25,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 131.01,
+        "sistema_mem_mb": 739.61
+      },
+      {
+        "t": 1794453980.25,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 131.08,
+        "sistema_mem_mb": 739.77
+      },
+      {
+        "t": 1794453981.25,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 131.23,
+        "sistema_mem_mb": 739.8
+      },
+      {
+        "t": 1794453982.25,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 131.23,
+        "sistema_mem_mb": 739.66
+      },
+      {
+        "t": 1794453983.25,
+        "api_cpu": 34.9,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 131.26,
+        "sistema_mem_mb": 739.91
+      },
+      {
+        "t": 1794453984.25,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 131.32,
+        "sistema_mem_mb": 739.84
+      },
+      {
+        "t": 1794453985.25,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 131.32,
+        "sistema_mem_mb": 739.73
+      },
+      {
+        "t": 1794453986.26,
+        "api_cpu": 44.9,
+        "api_mem_mb": 120.09,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 131.41,
+        "sistema_mem_mb": 739.61
+      },
+      {
+        "t": 1794453987.26,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 131.6,
+        "sistema_mem_mb": 739.7
+      },
+      {
+        "t": 1794453988.26,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 131.86,
+        "sistema_mem_mb": 739.73
+      },
+      {
+        "t": 1794453989.26,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 131.92,
+        "sistema_mem_mb": 739.85
+      },
+      {
+        "t": 1794453990.26,
+        "api_cpu": 23.9,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 132.16,
+        "sistema_mem_mb": 739.75
+      },
+      {
+        "t": 1794453991.26,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 132.29,
+        "sistema_mem_mb": 739.68
+      },
+      {
+        "t": 1794453992.26,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 132.55,
+        "sistema_mem_mb": 739.83
+      },
+      {
+        "t": 1794453993.27,
+        "api_cpu": 39.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 132.71,
+        "sistema_mem_mb": 739.8
+      },
+      {
+        "t": 1794453994.27,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 132.79,
+        "sistema_mem_mb": 739.76
+      },
+      {
+        "t": 1794453995.27,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 132.86,
+        "sistema_mem_mb": 739.68
+      },
+      {
+        "t": 1794453996.27,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 3.0,
+        "postgres_mem_mb": 132.9,
+        "sistema_mem_mb": 739.8
+      },
+      {
+        "t": 1794453997.27,
+        "api_cpu": 35.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 132.96,
+        "sistema_mem_mb": 739.79
+      },
+      {
+        "t": 1794453998.27,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 133.07,
+        "sistema_mem_mb": 739.54
+      },
+      {
+        "t": 1794453999.27,
+        "api_cpu": 35.9,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 133.18,
+        "sistema_mem_mb": 739.65
+      },
+      {
+        "t": 1794454000.27,
+        "api_cpu": 30.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 133.2,
+        "sistema_mem_mb": 739.71
+      },
+      {
+        "t": 1794454001.27,
+        "api_cpu": 38.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 133.24,
+        "sistema_mem_mb": 739.68
+      },
+      {
+        "t": 1794454002.27,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 133.39,
+        "sistema_mem_mb": 739.62
+      },
+      {
+        "t": 1794454003.27,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 133.45,
+        "sistema_mem_mb": 739.69
+      },
+      {
+        "t": 1794454004.28,
+        "api_cpu": 40.9,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 133.5,
+        "sistema_mem_mb": 739.78
+      },
+      {
+        "t": 1794454005.28,
+        "api_cpu": 40.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 133.52,
+        "sistema_mem_mb": 739.71
+      },
+      {
+        "t": 1794454006.28,
+        "api_cpu": 25.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 133.59,
+        "sistema_mem_mb": 739.65
+      },
+      {
+        "t": 1794454007.28,
+        "api_cpu": 24.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 133.64,
+        "sistema_mem_mb": 739.51
+      },
+      {
+        "t": 1794454008.28,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 133.65,
+        "sistema_mem_mb": 739.9
+      },
+      {
+        "t": 1794454009.28,
+        "api_cpu": 29.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 133.75,
+        "sistema_mem_mb": 739.78
+      },
+      {
+        "t": 1794454010.28,
+        "api_cpu": 31.9,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 134.11,
+        "sistema_mem_mb": 739.75
+      },
+      {
+        "t": 1794454011.28,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 134.12,
+        "sistema_mem_mb": 739.66
+      },
+      {
+        "t": 1794454012.28,
+        "api_cpu": 34.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 134.35,
+        "sistema_mem_mb": 739.66
+      },
+      {
+        "t": 1794454013.28,
+        "api_cpu": 27.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 134.73,
+        "sistema_mem_mb": 739.54
+      },
+      {
+        "t": 1794454014.29,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 135.38,
+        "sistema_mem_mb": 739.75
+      },
+      {
+        "t": 1794454015.29,
+        "api_cpu": 24.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 136.19,
+        "sistema_mem_mb": 739.72
+      },
+      {
+        "t": 1794454016.29,
+        "api_cpu": 34.9,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 136.6,
+        "sistema_mem_mb": 739.68
+      },
+      {
+        "t": 1794454017.29,
+        "api_cpu": 40.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 136.93,
+        "sistema_mem_mb": 755.36
+      },
+      {
+        "t": 1794454018.29,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 137.3,
+        "sistema_mem_mb": 750.9
+      },
+      {
+        "t": 1794454019.29,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.07,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 137.5,
+        "sistema_mem_mb": 750.8
+      },
+      {
+        "t": 1794454020.29,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.02,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 137.76,
+        "sistema_mem_mb": 749.0
+      },
+      {
+        "t": 1794454021.29,
+        "api_cpu": 32.0,
+        "api_mem_mb": 120.02,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 138.16,
+        "sistema_mem_mb": 746.7
+      },
+      {
+        "t": 1794454022.29,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.02,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 138.37,
+        "sistema_mem_mb": 744.52
+      },
+      {
+        "t": 1794454023.29,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.02,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 138.63,
+        "sistema_mem_mb": 743.14
+      },
+      {
+        "t": 1794454024.29,
+        "api_cpu": 28.0,
+        "api_mem_mb": 120.02,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 138.99,
+        "sistema_mem_mb": 743.15
+      },
+      {
+        "t": 1794454025.3,
+        "api_cpu": 37.0,
+        "api_mem_mb": 120.03,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 139.4,
+        "sistema_mem_mb": 743.14
+      },
+      {
+        "t": 1794454026.3,
+        "api_cpu": 31.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 2.0,
+        "postgres_mem_mb": 139.64,
+        "sistema_mem_mb": 743.05
+      },
+      {
+        "t": 1794454027.3,
+        "api_cpu": 29.9,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 139.98,
+        "sistema_mem_mb": 743.04
+      },
+      {
+        "t": 1794454028.3,
+        "api_cpu": 26.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 140.24,
+        "sistema_mem_mb": 742.96
+      },
+      {
+        "t": 1794454029.3,
+        "api_cpu": 33.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 1.0,
+        "postgres_mem_mb": 140.53,
+        "sistema_mem_mb": 743.16
+      },
+      {
+        "t": 1794454030.3,
+        "api_cpu": 18.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 140.65,
+        "sistema_mem_mb": 743.07
+      },
+      {
+        "t": 1794454031.3,
+        "api_cpu": 0.0,
+        "api_mem_mb": 120.04,
+        "postgres_cpu": 0.0,
+        "postgres_mem_mb": 140.96,
+        "sistema_mem_mb": 743.06
+      }
+    ]
+  }
+}

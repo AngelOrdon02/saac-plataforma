@@ -1,0 +1,106 @@
+{
+  "pasos_c3": 17,
+  "pasos_c3_por_mensaje": 13,
+  "recursos_emergencia_primero": 17,
+  "sin_respuesta_generada": 17,
+  "sin_llamadas_al_modelo": 13,
+  "con_solicitud": 17,
+  "prioridad_correcta": 17,
+  "pasos_verificacion": 5,
+  "verificacion_sin_respuesta_generada": 5,
+  "tiempos_c3_ms": {
+    "n": 17,
+    "media": 24.07784770588083,
+    "p50": 23.041132000003017,
+    "p95": 31.188276600005334,
+    "p99": 33.296793720001006,
+    "max": 33.82392299999992,
+    "min": 17.443296000010378
+  },
+  "notificaciones": {
+    "total": 38,
+    "personal_activo": 1,
+    "solicitudes": 18,
+    "solicitudes_notificadas_a_todo_el_personal": 18,
+    "avisos_prioridad_elevada": 2,
+    "avisos_sin_datos_personales": 38,
+    "correos": 19,
+    "correos_sin_datos_personales": 19,
+    "retraso_ms": {
+      "n": 38,
+      "media": 1.7097368421052632,
+      "p50": 0.0,
+      "p95": 4.872749999999954,
+      "p99": 32.485,
+      "max": 32.485,
+      "min": 0.0
+    },
+    "ejemplo_asunto": "[SAAC] Nueva solicitud SOL-2026-0001 · prioridad NORMAL",
+    "ejemplo_correo": "ciones@localhost\r\nTo: psicologia@saac.demo\r\nSubject: [SAAC] Nueva solicitud SOL-2026-0001 =?utf-8?q?=C2=B7?= prioridad\r\n NORMAL\r\nContent-Type: text/plain; charset=\"utf-8\"\r\nContent-Transfer-Encoding: 8bit\r\nMIME-Version: 1.0\r\n\r\nSe registró la solicitud SOL-2026-0001 con prioridad NORMAL.\r\n\r\n\r\nIngrese a http://localhost:8080 para revisarla.\r\n\r\nPor protección de datos, este correo no incluye información del estudiante.\r\n"
+  },
+  "bandeja_ordenada_por_prioridad": true,
+  "bandeja_tamano": 18,
+  "bandeja_primeras": [
+    "CRITICA",
+    "CRITICA",
+    "CRITICA",
+    "CRITICA",
+    "CRITICA"
+  ],
+  "registro_accesos": {
+    "detalles_consultados": 18,
+    "cambios_http": [
+      200,
+      200,
+      200
+    ],
+    "transicion_invalida_http": 409,
+    "registros_por_accion": {
+      "VER_CONTACTO": 18,
+      "CAMBIAR_ESTADO": 3
+    },
+    "cadena": {
+      "integra": true,
+      "registros": 21,
+      "falla_en_id": null,
+      "motivo": null,
+      "ultimo_hash": "ccde7b86c0c6579a2cf48948bfc88c9477f9518141188a9d7487755bf4778aec"
+    }
+  },
+  "cancelar_solicitud_c3_http": 409,
+  "falla_modelo": [
+    {
+      "texto": "He pensado en quitarme la vida",
+      "http": 200,
+      "accion": "PROTOCOLO_RIESGO",
+      "recursos": 6,
+      "respuesta": "",
+      "solicitud": "SOL-2026-0020"
+    },
+    {
+      "texto": "¿Cómo organizo mi semana de parciales?",
+      "http": 200,
+      "accion": "ACOMPANAMIENTO",
+      "recursos": 6,
+      "respuesta": "En este momento el asistente no está disponible. Intenta de nuevo en unos minutos; los recursos de apoyo de la universidad siguen disponibles en todo momento.",
+      "solicitud": null
+    },
+    {
+      "texto": "Ya no puedo más con todo esto",
+      "http": 200,
+      "accion": "VERIFICAR_RIESGO",
+      "recursos": 0,
+      "respuesta": "",
+      "solicitud": null
+    }
+  ],
+  "falla_canalizacion": {
+    "http": 200,
+    "accion": "FALLA_SEGURA",
+    "tipos_recursos": [
+      "EMERGENCIA",
+      "INSTITUCIONAL",
+      "LINEA_APOYO"
+    ]
+  }
+}

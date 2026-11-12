@@ -1,0 +1,617 @@
+{
+  "version_reglas": "1.0.0",
+  "huella_reglas": "21f9a9c551d549656ea9f798bd8fa6efc2779cfe9f6bcba29dcca1ebfa2b42e9",
+  "casos_motor": [
+    {
+      "id": "M01",
+      "descripcion": "Consulta académica sin señales",
+      "esperado": {
+        "categoria": "C0",
+        "accion": "ACOMPANAMIENTO",
+        "regla": "R7"
+      },
+      "obtenido": {
+        "categoria": "C0",
+        "accion": "ACOMPANAMIENTO",
+        "regla": "R7"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R7",
+        "categoria": "C0",
+        "accion": "ACOMPANAMIENTO"
+      }
+    },
+    {
+      "id": "M02",
+      "descripcion": "Una sola señal emocional no basta para ofrecer el tamizaje",
+      "esperado": {
+        "categoria": "C0",
+        "accion": "ACOMPANAMIENTO",
+        "regla": "R7"
+      },
+      "obtenido": {
+        "categoria": "C0",
+        "accion": "ACOMPANAMIENTO",
+        "regla": "R7"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R7",
+        "categoria": "C0",
+        "accion": "ACOMPANAMIENTO"
+      }
+    },
+    {
+      "id": "M03",
+      "descripcion": "Dos señales emocionales -> ofrecer tamizaje voluntario",
+      "esperado": {
+        "categoria": "C1",
+        "accion": "OFRECER_TAMIZAJE",
+        "regla": "R6"
+      },
+      "obtenido": {
+        "categoria": "C1",
+        "accion": "OFRECER_TAMIZAJE",
+        "regla": "R6"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R6",
+        "categoria": "C1",
+        "accion": "OFRECER_TAMIZAJE"
+      }
+    },
+    {
+      "id": "M04",
+      "descripcion": "Dos señales, pero ya se ofreció el tamizaje -> no insistir",
+      "esperado": {
+        "categoria": "C1",
+        "accion": "MONITOREO",
+        "regla": "R6"
+      },
+      "obtenido": {
+        "categoria": "C1",
+        "accion": "MONITOREO",
+        "regla": "R6"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R6",
+        "categoria": "C1",
+        "accion": "MONITOREO"
+      }
+    },
+    {
+      "id": "M05",
+      "descripcion": "PHQ-9 = 9 (leve) -> monitoreo activo",
+      "esperado": {
+        "categoria": "C1",
+        "accion": "MONITOREO",
+        "regla": "R5"
+      },
+      "obtenido": {
+        "categoria": "C1",
+        "accion": "MONITOREO",
+        "regla": "R5"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R5",
+        "categoria": "C1",
+        "accion": "MONITOREO"
+      }
+    },
+    {
+      "id": "M06",
+      "descripcion": "PHQ-9 = 10 (punto de corte de Kroenke et al.) -> derivación ordinaria",
+      "esperado": {
+        "categoria": "C2",
+        "accion": "OFRECER_DERIVACION",
+        "regla": "R3"
+      },
+      "obtenido": {
+        "categoria": "C2",
+        "accion": "OFRECER_DERIVACION",
+        "regla": "R3"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R3",
+        "categoria": "C2",
+        "accion": "OFRECER_DERIVACION"
+      }
+    },
+    {
+      "id": "M07",
+      "descripcion": "GAD-7 = 10 (punto de corte de Spitzer et al.) -> derivación ordinaria",
+      "esperado": {
+        "categoria": "C2",
+        "accion": "OFRECER_DERIVACION",
+        "regla": "R3"
+      },
+      "obtenido": {
+        "categoria": "C2",
+        "accion": "OFRECER_DERIVACION",
+        "regla": "R3"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R3",
+        "categoria": "C2",
+        "accion": "OFRECER_DERIVACION"
+      }
+    },
+    {
+      "id": "M08",
+      "descripcion": "GAD-7 = 4 (mínimo) sin otras señales -> acompañamiento",
+      "esperado": {
+        "categoria": "C0",
+        "accion": "ACOMPANAMIENTO",
+        "regla": "R7"
+      },
+      "obtenido": {
+        "categoria": "C0",
+        "accion": "ACOMPANAMIENTO",
+        "regla": "R7"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R7",
+        "categoria": "C0",
+        "accion": "ACOMPANAMIENTO"
+      }
+    },
+    {
+      "id": "M09",
+      "descripcion": "PHQ-9 bajo pero ítem 9 distinto de cero -> escalamiento prioritario",
+      "esperado": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "obtenido": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R1",
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO"
+      }
+    },
+    {
+      "id": "M10",
+      "descripcion": "Malestar persistente con deterioro funcional (NICE) -> derivación",
+      "esperado": {
+        "categoria": "C2",
+        "accion": "OFRECER_DERIVACION",
+        "regla": "R4"
+      },
+      "obtenido": {
+        "categoria": "C2",
+        "accion": "OFRECER_DERIVACION",
+        "regla": "R4"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R4",
+        "categoria": "C2",
+        "accion": "OFRECER_DERIVACION"
+      }
+    },
+    {
+      "id": "M11",
+      "descripcion": "Tres señales con persistencia pero sin deterioro -> ofrecer tamizaje",
+      "esperado": {
+        "categoria": "C1",
+        "accion": "OFRECER_TAMIZAJE",
+        "regla": "R6"
+      },
+      "obtenido": {
+        "categoria": "C1",
+        "accion": "OFRECER_TAMIZAJE",
+        "regla": "R6"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R6",
+        "categoria": "C1",
+        "accion": "OFRECER_TAMIZAJE"
+      }
+    },
+    {
+      "id": "M12",
+      "descripcion": "Señal de riesgo explícita -> escalamiento sin pasar por niveles intermedios",
+      "esperado": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "obtenido": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R1",
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO"
+      }
+    },
+    {
+      "id": "M13",
+      "descripcion": "Riesgo prevalece sobre un tamizaje mínimo",
+      "esperado": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "obtenido": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R1",
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO"
+      }
+    },
+    {
+      "id": "M14",
+      "descripcion": "Expresión ambigua -> verificación directa (mhGAP)",
+      "esperado": {
+        "categoria": "C1",
+        "accion": "VERIFICAR_RIESGO",
+        "regla": "R2"
+      },
+      "obtenido": {
+        "categoria": "C1",
+        "accion": "VERIFICAR_RIESGO",
+        "regla": "R2"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R2",
+        "categoria": "C1",
+        "accion": "VERIFICAR_RIESGO"
+      }
+    },
+    {
+      "id": "M15",
+      "descripcion": "Verificación positiva -> escalamiento prioritario",
+      "esperado": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "obtenido": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R1",
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO"
+      }
+    },
+    {
+      "id": "M16",
+      "descripcion": "Derivación pertinente con solicitud ya activa -> seguimiento",
+      "esperado": {
+        "categoria": "C2",
+        "accion": "SEGUIMIENTO_SOLICITUD",
+        "regla": "R3"
+      },
+      "obtenido": {
+        "categoria": "C2",
+        "accion": "SEGUIMIENTO_SOLICITUD",
+        "regla": "R3"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R3",
+        "categoria": "C2",
+        "accion": "SEGUIMIENTO_SOLICITUD"
+      }
+    },
+    {
+      "id": "M17",
+      "descripcion": "Derivación rechazada recientemente -> no insistir",
+      "esperado": {
+        "categoria": "C2",
+        "accion": "MONITOREO",
+        "regla": "R3"
+      },
+      "obtenido": {
+        "categoria": "C2",
+        "accion": "MONITOREO",
+        "regla": "R3"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R3",
+        "categoria": "C2",
+        "accion": "MONITOREO"
+      }
+    },
+    {
+      "id": "M18",
+      "descripcion": "El riesgo no se suprime aunque exista una solicitud activa",
+      "esperado": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "obtenido": {
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO",
+        "regla": "R1"
+      },
+      "coincide": true,
+      "oraculo": {
+        "regla": "R1",
+        "categoria": "C3",
+        "accion": "PROTOCOLO_RIESGO"
+      }
+    }
+  ],
+  "coincidencias_motor": 18,
+  "total_motor": 18,
+  "coincidencias_con_oraculo": 18,
+  "determinismo": {
+    "casos": 18,
+    "repeticiones": 1000,
+    "evaluaciones": 18000,
+    "casos_con_variacion": 0
+  },
+  "detectores": [
+    {
+      "texto": "¿Cómo hago un plan de estudio para el parcial?",
+      "esperado": [
+        0,
+        false
+      ],
+      "obtenido": [
+        0,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "A veces quisiera no despertar",
+      "esperado": [
+        1,
+        false
+      ],
+      "obtenido": [
+        1,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Siento que estarían mejor sin mí",
+      "esperado": [
+        1,
+        false
+      ],
+      "obtenido": [
+        1,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "He pensado en quitarme la vida",
+      "esperado": [
+        2,
+        false
+      ],
+      "obtenido": [
+        2,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "A veces me corto cuando estoy muy mal",
+      "esperado": [
+        2,
+        false
+      ],
+      "obtenido": [
+        2,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Ya tengo un plan para matarme",
+      "esperado": [
+        3,
+        false
+      ],
+      "obtenido": [
+        3,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Tengo pastillas guardadas para suicidarme",
+      "esperado": [
+        3,
+        false
+      ],
+      "obtenido": [
+        3,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Ya no puedo más con todo esto",
+      "esperado": [
+        0,
+        true
+      ],
+      "obtenido": [
+        0,
+        true
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "No le veo sentido a nada",
+      "esperado": [
+        0,
+        true
+      ],
+      "obtenido": [
+        0,
+        true
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Nunca he pensado en suicidarme, solo estoy cansado",
+      "esperado": [
+        0,
+        true
+      ],
+      "obtenido": [
+        0,
+        true
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Este proyecto me va a matar de tanto trabajo",
+      "esperado": [
+        0,
+        false
+      ],
+      "obtenido": [
+        0,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Ojalá estuviera muerta",
+      "esperado": [
+        1,
+        false
+      ],
+      "obtenido": [
+        1,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "No sé ni para qué estudio. Ya tengo un plan para quitarme la vida",
+      "esperado": [
+        3,
+        false
+      ],
+      "obtenido": [
+        3,
+        false
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "¿Qué técnica sirve para memorizar fórmulas?",
+      "esperado": [],
+      "obtenido": [],
+      "coincide": true
+    },
+    {
+      "texto": "No me puedo concentrar cuando estudio",
+      "esperado": [
+        "D7"
+      ],
+      "obtenido": [
+        "D7"
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Me siento muy triste y sin ganas de nada",
+      "esperado": [
+        "D1",
+        "D2"
+      ],
+      "obtenido": [
+        "D1",
+        "D2"
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "No estoy triste, solo desorganizado",
+      "esperado": [],
+      "obtenido": [],
+      "coincide": true
+    },
+    {
+      "texto": "No puedo dormir desde hace varias semanas",
+      "esperado": [
+        "D3",
+        "T1"
+      ],
+      "obtenido": [
+        "D3",
+        "T1"
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Dejé de ir a clases y siento que soy un fracaso",
+      "esperado": [
+        "D6",
+        "F1"
+      ],
+      "obtenido": [
+        "D6",
+        "F1"
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Me preocupo por todo y no logro relajarme",
+      "esperado": [
+        "A3",
+        "A4"
+      ],
+      "obtenido": [
+        "A3",
+        "A4"
+      ],
+      "coincide": true
+    },
+    {
+      "texto": "Tengo ansiedad y no paro de pensar en el examen",
+      "esperado": [
+        "A1",
+        "A2"
+      ],
+      "obtenido": [
+        "A1",
+        "A2"
+      ],
+      "coincide": true
+    }
+  ],
+  "coincidencias_detectores": 21,
+  "total_detectores": 21
+}

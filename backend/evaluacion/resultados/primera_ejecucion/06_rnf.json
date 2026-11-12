@@ -1,0 +1,86 @@
+{
+  "RNF01": {
+    "mensajes": [
+      143,
+      143
+    ],
+    "nombres": [
+      78,
+      78
+    ],
+    "telefonos": [
+      76,
+      76
+    ],
+    "contactos": [
+      20,
+      20
+    ],
+    "contrasenas_argon2id": [
+      78,
+      78
+    ]
+  },
+  "RNF02": [
+    {
+      "rol": "academico",
+      "tabla": "identidad.usuario",
+      "rechazado": true
+    },
+    {
+      "rol": "academico",
+      "tabla": "canalizacion.evaluacion",
+      "rechazado": true
+    },
+    {
+      "rol": "academico",
+      "tabla": "canalizacion.solicitud_derivacion",
+      "rechazado": true
+    },
+    {
+      "rol": "academico",
+      "tabla": "auditoria.bitacora_decision",
+      "rechazado": true
+    },
+    {
+      "rol": "nucleo",
+      "tabla": "academico.mensaje",
+      "rechazado": true
+    },
+    {
+      "rol": "nucleo",
+      "tabla": "academico.conversacion",
+      "rechazado": true
+    }
+  ],
+  "RNF04": {
+    "textos_enviados": 185,
+    "identificadores_presentes": [],
+    "marcadores_presentes": [
+      "[carne]",
+      "[correo]",
+      "[nombre]"
+    ],
+    "muestras": [
+      {
+        "original": "Me llamo Ana López, carné 202012345, cel 5555-0101, correo ana@gmail.com",
+        "depurado": "Me llamo [NOMBRE] [NOMBRE], carné [CARNE], cel [TELEFONO], correo [CORREO]"
+      },
+      {
+        "original": "Mi DPI es 3006 61320 0101 y mi número +502 4123-4567",
+        "depurado": "Mi DPI es [CUI] y mi número [TELEFONO]"
+      },
+      {
+        "original": "Escríbeme a juan.perez@ingenieria.usac.edu.gt o al 41234567",
+        "depurado": "Escríbeme a [CORREO] o al [TELEFONO]"
+      }
+    ]
+  },
+  "RNF10": {
+    "url": "/api/openapi.json",
+    "http": 200,
+    "rutas": 28,
+    "operaciones": 32,
+    "version_openapi": "3.1.0"
+  }
+}

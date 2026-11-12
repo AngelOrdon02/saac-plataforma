@@ -1,0 +1,241 @@
+# =============================================================================
+# SAAC · Conjunto de escenarios simulados para la evaluación (capítulo 5)
+#
+# Cada escenario representa a un estudiante simulado nuevo (cuenta propia) que
+# realiza una secuencia de eventos: mensajes, respuestas a los cuestionarios,
+# respuestas a la verificación directa, rechazos de ofrecimientos y aceptación de
+# la derivación.
+#
+# Los resultados esperados se asignaron ANTES de ejecutar la plataforma, aplicando
+# a mano los criterios documentados (tablas 20 a 23 y 27 del documento) al
+# SIGNIFICADO de cada mensaje, y no a las expresiones que reconoce el léxico.
+#
+# forma:
+#   canonica   -> usa la redacción del ítem del instrumento o los ejemplos
+#                 documentados en las tablas 20 y 27
+#   parafrasis -> expresa el mismo constructo con otras palabras o con
+#                 expresiones coloquiales guatemaltecas
+#   n/a        -> escenarios guiados por cuestionarios o por reglas de supresión
+#
+# Ningún texto proviene de personas reales.
+# =============================================================================
+
+version: "1.0"
+
+grupos:
+  G1: { nombre: "Consulta académica", fuente: "Dunlosky et al. (2013); Claessens et al. (2007); Steel (2007)" }
+  G2: { nombre: "Indicador compartido aislado", fuente: "Sección 3.2.2 (indicadores compartidos)" }
+  G3: { nombre: "Expresión figurada sin riesgo", fuente: "Sección 3.4.1 (falsos positivos)" }
+  G4: { nombre: "Señales emocionales sin tamizaje", fuente: "Kroenke et al. (2001); Spitzer et al. (2006); NICE (2011)" }
+  G5: { nombre: "Malestar persistente con deterioro", fuente: "NICE (2011)" }
+  G6: { nombre: "Tamizaje con instrumentos validados", fuente: "Kroenke et al. (2001); Spitzer et al. (2006)" }
+  G7: { nombre: "Expresión ambigua y verificación directa", fuente: "OMS (2016)" }
+  G8: { nombre: "Señal de riesgo explícita", fuente: "Posner et al. (2011); OMS (2016)" }
+  G9: { nombre: "Supresiones y no insistencia", fuente: "Reglas RN-12; tabla 23" }
+
+escenarios:
+  # ---------------------------------------------------------------- G1 (C0) --
+  - { id: E01, grupo: G1, forma: canonica, pasos: [ { mensaje: "¿Cómo hago un horario de estudio para la semana de parciales?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E02, grupo: G1, forma: canonica, pasos: [ { mensaje: "¿Qué técnica me recomiendas para memorizar las fórmulas de Física Básica?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E03, grupo: G1, forma: canonica, pasos: [ { mensaje: "Siempre dejo todo para el último día, ¿cómo dejo de procrastinar?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E04, grupo: G1, forma: canonica, pasos: [ { mensaje: "¿Sirve subrayar los libros o es mejor hacer resúmenes?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E05, grupo: G1, forma: canonica, pasos: [ { mensaje: "¿Cómo uso la técnica Pomodoro si tengo que programar un proyecto largo?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E06, grupo: G1, forma: canonica, pasos: [ { mensaje: "Tengo tres entregas el mismo viernes, ¿cómo priorizo?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E07, grupo: G1, forma: parafrasis, pasos: [ { mensaje: "¿Es mejor estudiar todo de un solo o repartirlo en varios días?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E08, grupo: G1, forma: canonica, pasos: [ { mensaje: "¿Cómo me preparo para el examen final de Matemática Intermedia?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E09, grupo: G1, forma: parafrasis, pasos: [ { mensaje: "¿Cómo hago para no distraerme con el celular mientras estudio?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E10, grupo: G1, forma: canonica, pasos: [ { mensaje: "Soy Ana López, mi carné es 202012345 y mi correo ana.lopez@gmail.com, ¿cómo organizo mis apuntes de Estructuras de Datos?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ], nombre_registro: "Ana Lucía López" }
+
+  # ---------------------------------------------------------------- G2 (C0) --
+  - { id: E11, grupo: G2, forma: canonica, pasos: [ { mensaje: "No me puedo concentrar cuando leo los apuntes de Física", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E12, grupo: G2, forma: canonica, pasos: [ { mensaje: "No tengo energía porque me desvelé haciendo el proyecto", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E13, grupo: G2, forma: canonica, pasos: [ { mensaje: "Me distraigo fácilmente cuando estudio en la casa", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E14, grupo: G2, forma: canonica, pasos: [ { mensaje: "Estoy cansado todo el tiempo por los laboratorios", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+
+  # ---------------------------------------------------------------- G3 (C0) --
+  - { id: E15, grupo: G3, forma: parafrasis, pasos: [ { mensaje: "Ese catedrático nos quiere matar con tantas tareas", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E16, grupo: G3, forma: parafrasis, pasos: [ { mensaje: "Me muero de sueño en la clase de las siete", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E17, grupo: G3, forma: parafrasis, pasos: [ { mensaje: "Ya me morí con el parcial de Lógica, me fue fatal", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E18, grupo: G3, forma: parafrasis, pasos: [ { mensaje: "Mato el tiempo viendo videos en vez de estudiar, ¿qué hago?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+  - { id: E19, grupo: G3, forma: parafrasis, pasos: [ { mensaje: "Este semestre me está matando, ¿cómo organizo mejor mis tiempos?", esperado: { categoria: C0, accion: ACOMPANAMIENTO } } ] }
+
+  # ---------------------------------------------------------------- G4 (C1) --
+  - { id: E20, grupo: G4, forma: canonica, pasos: [ { mensaje: "Me siento muy triste y ya nada me motiva", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+  - { id: E21, grupo: G4, forma: canonica, pasos: [ { mensaje: "Me preocupo demasiado por todo y no logro relajarme", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+  - { id: E22, grupo: G4, forma: canonica, pasos: [ { mensaje: "Ando muy estresado y no paro de pensar en lo que puede salir mal", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+  - { id: E23, grupo: G4, forma: canonica, pasos: [ { mensaje: "No puedo dormir y me siento un fracaso", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+  - { id: E24, grupo: G4, forma: canonica, pasos: [ { mensaje: "No me puedo concentrar y me siento muy desanimado", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+  - { id: E25, grupo: G4, forma: canonica, pasos: [ { mensaje: "Tengo los nervios de punta y siento que algo malo va a pasar", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+  - { id: E26, grupo: G4, forma: parafrasis, pasos: [ { mensaje: "Ando bien bajoneado y ya nada me late como antes", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+  - { id: E27, grupo: G4, forma: parafrasis, pasos: [ { mensaje: "Últimamente lloro por cualquier cosa y no le encuentro gusto a nada", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+  - { id: E28, grupo: G4, forma: parafrasis, pasos: [ { mensaje: "Duermo muy poco y como de más por los nervios", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+  - { id: E29, grupo: G4, forma: parafrasis, pasos: [ { mensaje: "Me siento inútil y todo me cae mal, me enojo con todos", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } } ] }
+
+  # ---------------------------------------------------------------- G5 (C2) --
+  - { id: E30, grupo: G5, forma: canonica, pasos: [ { mensaje: "Desde hace varias semanas me siento muy triste, no puedo dormir, ya nada me interesa y dejé de ir a clases", esperado: { categoria: C2, accion: OFRECER_DERIVACION } } ] }
+  - id: E31
+    grupo: G5
+    forma: canonica
+    pasos:
+      - { mensaje: "No tengo energía y no me puedo concentrar", esperado: { categoria: C0, accion: ACOMPANAMIENTO } }
+      - { mensaje: "Además me siento un fracaso y casi no como", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { mensaje: "Llevo tres semanas así y ya no voy a clases", esperado: { categoria: C2, accion: OFRECER_DERIVACION } }
+  - { id: E32, grupo: G5, forma: canonica, pasos: [ { mensaje: "Todo el semestre he estado muy ansioso, me preocupo por todo, no logro relajarme y pienso abandonar la carrera", esperado: { categoria: C2, accion: OFRECER_DERIVACION } } ] }
+  - { id: E33, grupo: G5, forma: parafrasis, pasos: [ { mensaje: "Hace como un mes que ando apagado, sin ganas de nada, durmiendo todo el día, y ya no entrego tareas", esperado: { categoria: C2, accion: OFRECER_DERIVACION } } ] }
+  - { id: E34, grupo: G5, forma: parafrasis, pasos: [ { mensaje: "Llevo dos meses sin poder dormir bien, me siento vacía y culpable por todo, y ya no voy a clases", esperado: { categoria: C2, accion: OFRECER_DERIVACION } } ] }
+
+  # ---------------------------------------------------------------- G6 ------
+  # Mensaje inicial común: dos indicadores emocionales (D2, D3) -> C1 · OFRECER_TAMIZAJE
+  - id: E35
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [0, 1, 0, 1, 0, 1, 0, 1, 0], gad7: [1, 0, 1, 0, 1, 0, 0] }, esperado: { categoria: C1, accion: MONITOREO } }   # 4 y 3: sin rango leve; R6 suprimida
+  - id: E36
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [1, 1, 1, 1, 1, 0, 0, 0, 0], gad7: [1, 1, 1, 1, 0, 0, 0] }, esperado: { categoria: C1, accion: MONITOREO } }   # PHQ-9 = 5 (límite leve)
+  - id: E37
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [1, 1, 1, 1, 1, 1, 1, 2, 0], gad7: [2, 2, 1, 1, 1, 1, 1] }, esperado: { categoria: C1, accion: MONITOREO } }   # 9 y 9 (límite inferior)
+  - id: E38
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [2, 1, 1, 1, 1, 1, 1, 2, 0], gad7: [1, 1, 1, 1, 0, 0, 0] }, esperado: { categoria: C2, accion: OFRECER_DERIVACION } }   # PHQ-9 = 10
+      - { aceptar_derivacion: true, esperado: { solicitud: C2, prioridad: NORMAL } }
+  - id: E39
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [1, 1, 1, 1, 1, 1, 0, 0, 0], gad7: [2, 2, 2, 1, 1, 1, 1] }, esperado: { categoria: C2, accion: OFRECER_DERIVACION } }   # GAD-7 = 10
+      - { aceptar_derivacion: false, esperado: { estado_http: 400 } }
+  - id: E40
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [3, 3, 3, 3, 3, 3, 3, 3, 0], gad7: [3, 3, 3, 3, 3, 3, 3] }, esperado: { categoria: C2, accion: OFRECER_DERIVACION } }   # 24 y 21
+  - id: E41
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [0, 0, 0, 0, 0, 0, 0, 0, 1], gad7: [0, 0, 0, 0, 0, 0, 0] }, esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } }   # ítem 9 = 1
+  - id: E42
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [2, 3, 2, 2, 2, 2, 2, 2, 3], gad7: [2, 2, 2, 2, 1, 1, 1] }, esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } }   # ítem 9 = 3
+  - id: E43
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { gad7: [3, 2, 2, 2, 2, 2, 2] }, esperado: { categoria: C2, accion: OFRECER_DERIVACION } }   # solo GAD-7 = 15
+  - id: E44
+    grupo: G6
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [1, 1, 0, 1, 0, 0, 0, 0, 0] }, esperado: { categoria: C1, accion: MONITOREO } }   # solo PHQ-9 = 3
+
+  # ---------------------------------------------------------------- G7 ------
+  - id: E45
+    grupo: G7
+    forma: canonica
+    pasos:
+      - { mensaje: "Ya no puedo más con todo esto", esperado: { categoria: C1, accion: VERIFICAR_RIESGO } }
+      - { verificacion: SI, esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } }
+  - id: E46
+    grupo: G7
+    forma: canonica
+    pasos:
+      - { mensaje: "No le veo sentido a nada", esperado: { categoria: C1, accion: VERIFICAR_RIESGO } }
+      - { verificacion: "NO", esperado: { categoria: C0, accion: ACOMPANAMIENTO } }
+  - id: E47
+    grupo: G7
+    forma: canonica
+    pasos:
+      - { mensaje: "Quiero desaparecer de este mundo", esperado: { categoria: C1, accion: VERIFICAR_RIESGO } }
+      - { verificacion: SIN_RESPUESTA, esperado: { categoria: C0, accion: ACOMPANAMIENTO, recursos: true, sin_solicitud: true } }
+  - id: E48
+    grupo: G7
+    forma: canonica
+    pasos:
+      - { mensaje: "Siento que soy una carga para mi familia", esperado: { categoria: C1, accion: VERIFICAR_RIESGO } }
+      - { verificacion: SI, esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } }
+  - { id: E49, grupo: G7, forma: parafrasis, pasos: [ { mensaje: "Ya no aguanto, siento que todo sería más fácil si yo no estuviera", esperado: { categoria: C1, accion: VERIFICAR_RIESGO } } ] }
+  - { id: E50, grupo: G7, forma: canonica, pasos: [ { mensaje: "Nunca pensaría en quitarme la vida, solo estoy cansado de la U", esperado: { categoria: C1, accion: VERIFICAR_RIESGO } } ] }
+
+  # ---------------------------------------------------------------- G8 (C3) --
+  # Nivel 1: deseo de estar muerto (prioridad alta)
+  - { id: E51, grupo: G8, forma: canonica, nivel: 1, pasos: [ { mensaje: "A veces quisiera estar muerto", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } } ] }
+  - { id: E52, grupo: G8, forma: canonica, nivel: 1, pasos: [ { mensaje: "Mi familia estaría mejor sin mí", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } } ] }
+  - { id: E53, grupo: G8, forma: parafrasis, nivel: 1, pasos: [ { mensaje: "Me quiero morir, ya no aguanto la presión de la U", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } } ] }
+  - { id: E54, grupo: G8, forma: parafrasis, nivel: 1, pasos: [ { mensaje: "Ojalá me pasara algo y ya no despertar", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } } ] }
+  # Nivel 2: ideación activa o autolesión (prioridad alta)
+  - { id: E55, grupo: G8, forma: canonica, nivel: 2, pasos: [ { mensaje: "He pensado en suicidarme", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } } ] }
+  - { id: E56, grupo: G8, forma: canonica, nivel: 2, pasos: [ { mensaje: "Me he cortado los brazos cuando me siento así", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } } ] }
+  - { id: E57, grupo: G8, forma: parafrasis, nivel: 2, pasos: [ { mensaje: "He pensado en quitarme de en medio", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } } ] }
+  - { id: E58, grupo: G8, forma: parafrasis, nivel: 2, pasos: [ { mensaje: "A veces me lastimo para sentir algo", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } } ] }
+  - { id: E59, grupo: G8, forma: canonica, nivel: 2, pasos: [ { mensaje: "No entiendo nada de Cálculo. Además he pensado en matarme", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } } ] }
+  # Nivel 3: método, intención o plan (prioridad crítica)
+  - { id: E60, grupo: G8, forma: canonica, nivel: 3, pasos: [ { mensaje: "Ya hice un plan para suicidarme este fin de semana", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: CRITICA } } ] }
+  - { id: E61, grupo: G8, forma: canonica, nivel: 3, pasos: [ { mensaje: "Guardé unas pastillas para matarme", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: CRITICA } } ] }
+  - { id: E62, grupo: G8, forma: parafrasis, nivel: 3, pasos: [ { mensaje: "Esta noche me voy a tomar todas las pastillas de mi mamá", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: CRITICA } } ] }
+  - { id: E63, grupo: G8, forma: canonica, nivel: 3, pasos: [ { mensaje: "Me estoy despidiendo, gracias por todo", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: CRITICA } } ] }
+  - { id: E64, grupo: G8, forma: parafrasis, nivel: 3, pasos: [ { mensaje: "Ya decidí que mañana termino con todo", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: CRITICA } } ] }
+
+  # ---------------------------------------------------------------- G9 ------
+  - id: E65
+    grupo: G9
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { rechazo: TAMIZAJE }
+      - { mensaje: "Sigo muy triste y ya nada me interesa", esperado: { categoria: C1, accion: MONITOREO } }      # rechazo en los últimos 7 días
+  - id: E66
+    grupo: G9
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { mensaje: "También me preocupo por todo", esperado: { categoria: C1, accion: MONITOREO } }               # oferta pendiente < 24 h
+  - id: E67
+    grupo: G9
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [2, 2, 1, 1, 1, 2, 1, 2, 0], gad7: [1, 1, 1, 1, 0, 0, 0] }, esperado: { categoria: C2, accion: OFRECER_DERIVACION } }   # PHQ-9 = 12
+      - { aceptar_derivacion: true, esperado: { solicitud: C2, prioridad: NORMAL } }
+      - { mensaje: "Sigo igual, me siento muy triste desde hace semanas y dejé de ir a clases", esperado: { categoria: C2, accion: SEGUIMIENTO_SOLICITUD } }
+  - id: E68
+    grupo: G9
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { tamizaje: { phq9: [2, 2, 1, 1, 1, 2, 1, 2, 0], gad7: [1, 1, 1, 1, 0, 0, 0] }, esperado: { categoria: C2, accion: OFRECER_DERIVACION } }
+      - { rechazo: DERIVACION }
+      - { mensaje: "Me siento muy triste", esperado: { categoria: C2, accion: MONITOREO } }                         # derivación rechazada
+  - id: E69
+    grupo: G9
+    forma: n/a
+    pasos:
+      - { mensaje: "Me siento muy triste y no puedo dormir", esperado: { categoria: C1, accion: OFRECER_TAMIZAJE } }
+      - { rechazo: TAMIZAJE }
+      - { mensaje: "He pensado en quitarme la vida", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } }   # las supresiones no aplican al riesgo
+  - id: E70
+    grupo: G9
+    forma: n/a
+    pasos:
+      - { mensaje: "He pensado en suicidarme", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: ALTA } }
+      - { mensaje: "Ya tengo un plan para matarme esta noche", esperado: { categoria: C3, accion: PROTOCOLO_RIESGO, prioridad: CRITICA, misma_solicitud: true } }   # tabla 27: nivel 3 -> crítica
